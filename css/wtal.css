@@ -89,7 +89,8 @@
 }
 
 .hero {
-	background: url('../img/landscape02.jpg') center;
+	background-image: url('../img/landscape02.jpg');
+	background-position: center;
 }
 
 .hero .container {
@@ -440,7 +441,8 @@ body > footer .about {
 }
 
 #about .photo {
-	background: url("../img/mac02.jpg") center;
+	background-image: url("../img/mac02.jpg");
+	background-position: center;
 	min-height: 18em;
 }
 

@@ -201,3 +201,7 @@ blockquote {
     -webkit-user-select: none;
     -khtml-user-select: none;
 }
+
+strong {
+    font-weight: 600;
+}
