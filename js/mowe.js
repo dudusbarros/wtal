@@ -46,7 +46,7 @@ window.onload = function () {
 
 	// Append forms
 	var contactForm = '<a class="action user-unselect cursor-pointer" data-toggle="contact-form">Assine Já</a>' +
-		'<input type="date" class="contact-form" name="name" placeholder="Nome" autocomplete="off"/>' +
+		'<input type="text" class="contact-form" name="name" placeholder="Nome" autocomplete="off"/>' +
 		'<input type="tel" class="contact-form" name="phone" placeholder="Telefone (apenas números)" autocomplete="off" maxlength="11"/>' +
 		'<input type="submit" class="contact-form action send user-unselect cursor-pointer" value="Solicitar Contato!"/>' +
 		'<span class="action sent">Obrigado! :D<br/>Entraremos em contato em breve!</span>' +
