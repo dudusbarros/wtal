@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
 
-var emailService = 'eduardo@noibe.com';
+var _emailService = 'eduardo@noibe.com';
 var emailServiceCount = 4;
 var emailServiceClickCount = 8;
 
@@ -115,7 +115,7 @@ window.onload = function () {
 					phone: ab,
 					product: $(a).find('.title').html(),
 					reference: $(b).attr('data-product-reference'),
-					mail: emailService
+					mail: _emailService
 				};
 				// Test number of requests (MAX = 4)
 				if (emailServiceCount > 0) {
@@ -131,14 +131,14 @@ window.onload = function () {
 							$(a).addClass('success');
 							emailServiceCount--;
 						},
-						url: '/api/wtal/'
+						url: 'api/wtal/'
 					});
 				} else {
 					$(a).removeClass('active-form');
 					$(a).addClass('fail');
 				}
 			} else {
-				console.log('algum erro');
+				alert('Campos vazios');
 			}
 		} else {
 			$(a).removeClass('active-form');
