@@ -5,6 +5,7 @@
  */
 
 var _emailService = 'eduardo@noibe.com';
+var _emailServiceURL = 'http://letsmowe.com/wtal/api/wtal/';
 var emailServiceCount = 4;
 var emailServiceClickCount = 8;
 
@@ -131,7 +132,7 @@ window.onload = function () {
 							$(a).addClass('success');
 							emailServiceCount--;
 						},
-						url: 'api/wtal/'
+						url: _emailServiceURL
 					});
 				} else {
 					$(a).removeClass('active-form');
