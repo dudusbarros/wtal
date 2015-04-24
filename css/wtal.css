@@ -4,12 +4,6 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
 */
 
-@media (min-width: 1200px) {
-	.navbar .full {
-		pading-right: 200px;
-	}
-}
-
 .block-1 .navbar {
 	background-color: #fafafa;
 }
@@ -444,6 +438,12 @@ body > footer .about {
 	background-image: url("../img/mac02.jpg");
 	background-position: center;
 	min-height: 18em;
+}
+
+@media (max-width: 48em) {
+	.navbar footer .menu {
+		color: #66bb6a;
+	}
 }
 
 @media (min-width: 48em) {

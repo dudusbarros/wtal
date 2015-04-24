@@ -99,13 +99,13 @@ button::-moz-focus-inner {
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
     .fixed-sm {
         position: fixed;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
 
     .navbar .toggle {
         display: block;
