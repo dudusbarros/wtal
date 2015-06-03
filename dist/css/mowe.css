@@ -246,6 +246,8 @@ button::-moz-focus-inner {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -431,6 +433,10 @@ button::-moz-focus-inner {
 .pricelist .content li:hover .action {
 	opacity: 1;
 	transition: none;
+}
+
+.pricelist.hidden-price .content li .title {
+	font-size: 3em;
 }
 /*!
  * Mowe Structure v0.5.0 (http://getvilla.org/)

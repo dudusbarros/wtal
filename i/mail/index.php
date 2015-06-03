@@ -4,6 +4,7 @@ require '../PHPMailer/PHPMailerAutoload.php';
 
 header("Access-Control-Allow-Origin: *");
 
+$city = $_GET['city'];
 $name = $_GET['name'];
 $phone = $_GET['phone'];
 $product = $_GET['product'];
@@ -47,6 +48,7 @@ if ($emailService) {
 	$mail->Subject = 'Pedido de contato - Webtal Telecom';
 	$mail->Body = 'Foi realizado um pedido de contato pelo site!.<br/>';
 	$mail->Body .= 'Nome: <b>' . $name . '</b><br/>';
+	$mail->Body .= 'Cidade: <b>' . $city . '</b><br/>';
 	$mail->Body .= 'Telefone: <b>' . $phone . '</b><br/>';
 	$mail->Body .= 'Produto de interesse: <b>' . $product . '</b><br/>';
 	$mail->Body .= 'Tipo: <b>' . $reference . '</b><br/>';

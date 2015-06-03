@@ -25,8 +25,6 @@
 
 </style>
 
-<div class="a">
-
 	<div id="prices" class="block teal-900 font-white">
 
 		<div class="container">
@@ -35,125 +33,227 @@
 				<p class="lead">Para atender melhor os nossos clientes, criamos planos para cada tipo de necessidade. Escolha o seu plano na lista a baixo e preencha o seu nome e telefone, entraremos em contato com você o mais breve possível! Em caso de duvidas, entre em contato!</p>
 			</div>
 			<div>
-				<span>Exibindo planos para</span>
+				<span>Exibindo planos disponíveis para</span>
 				<select name="city" id="city">
-					<option value="palmital">Palmital</option>
-					<option value="palmital">Palmital</option>
-					<option value="palmital">Palmital</option>
-					<option value="palmital">Palmital</option>
+					<option value="palmital" selected>Palmital</option>
+					<option value="ibirarema">Ibirarema</option>
+					<option value="platina">Platina</option>
 				</select>
 			</div>
 		</div>
 
-		<!--div.container>div.pricelist>(ul.nav>(li{Plan $$})*5)+(ul.content>(li{Plan Text $$})*5)-->
+		<div class="wipe" id="prices-wipe">
 
-		<div class="wide container">
-			<div class="slide">
-				<ul class="nav pills">
-					<li>Residencial</li>
-					<li>Rural</li>
-				</ul>
-				<ul class="content">
+			<div class="frame pricelist-palmital">
 
-					<li class="pricelist" data-product-reference="residencial">
-						<ul class="content">
-							<li>
-								<span class="title">1 Mega</span>
-								<div class="price">
-									<span class="dollar">R$</span>
-									<span class="number">54</span>
-									<span class="decimal">,00</span>
-								</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-							<li>
-								<span class="title">2 Mega</span>
-							<div class="price">
-								<span class="dollar">R$</span>
-								<span class="number">74</span>
-								<span class="decimal">,00</span>
-							</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-							<li>
-								<span class="title">3 Mega</span>
-							<div class="price">
-								<span class="dollar">R$</span>
-								<span class="number">99</span>
-								<span class="decimal">,00</span>
-							</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-							<li>
-								<span class="title">4 Mega</span>
-							<div class="price">
-								<span class="dollar">R$</span>
-								<span class="number">125</span>
-								<span class="decimal">,00</span>
-							</div>
-								<span class="description">Upload: 1 MEGA</span>
+				<div class="container wide">
 
-							</li>
-						</ul>
-					</li>
+					<div class="slide">
 
-					<li class="pricelist" data-product-reference="rural">
-						<ul class="content">
-							<li>
-								<span class="title">1 Mega</span>
-								<div class="price">
-									<span class="dollar">R$</span>
-									<span class="number">54</span>
-									<span class="decimal">,00</span>
-								</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-							<li>
-								<span class="title">2 Mega</span>
-								<div class="price">
-									<span class="dollar">R$</span>
-									<span class="number">74</span>
-									<span class="decimal">,00</span>
-								</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-							<li>
-								<span class="title">3 Mega</span>
-								<div class="price">
-									<span class="dollar">R$</span>
-									<span class="number">99</span>
-									<span class="decimal">,00</span>
-								</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-							<li>
-								<span class="title">4 Mega</span>
-								<div class="price">
-									<span class="dollar">R$</span>
-									<span class="number">105</span>
-									<span class="decimal">,00</span>
-								</div>
-								<span class="description">Upload: 1 MEGA</span>
-							</li>
-						</ul>
-					</li>
+					<ul class="nav pills">
+						<li>Residencial</li>
+						<li>Rural</li>
+					</ul>
 
-				</ul>
+					<ul class="content">
+
+						<li class="pricelist hidden-price" data-product-reference="residencial">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+						<li class="pricelist hidden-price" data-product-reference="rural">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+				</div>
+
 			</div>
+
+			<div class="frame pricelist-ibirarema">
+
+				<div class="container wide">
+
+					<div class="slide">
+
+					<ul class="nav pills">
+						<li>Residencial</li>
+						<li>Rural</li>
+					</ul>
+
+					<ul class="content">
+
+						<li class="pricelist hidden-price" data-product-reference="residencial">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+						<li class="pricelist hidden-price" data-product-reference="rural">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+				</div>
+
+			</div>
+
+			<div class="frame pricelist-platina">
+
+				<div class="container wide">
+
+					<div class="slide">
+
+						<ul class="nav pills">
+							<li>Residencial</li>
+							<li>Rural</li>
+						</ul>
+
+						<ul class="content">
+
+							<li class="pricelist hidden-price" data-product-reference="residencial">
+								<ul class="content">
+									<li>
+										<span class="title">1 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+									<li>
+										<span class="title">2 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+									<li>
+										<span class="title">3 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+									<li>
+										<span class="title">4 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+								</ul>
+							</li>
+
+							<li class="pricelist hidden-price" data-product-reference="rural">
+								<ul class="content">
+									<li>
+										<span class="title">1 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+									<li>
+										<span class="title">2 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+									<li>
+										<span class="title">3 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+									<li>
+										<span class="title">4 Mega</span>
+										<span class="description">Upload: 1 MEGA</span>
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
 
-</div>
-
-
 <script src="dist/js/jquery-2.1.1.min.js"></script>
+
+<script src="js/app.js"></script>
 
 <script>
 
+	var city = document.getElementById('city');
+	var pricesWipe = document.getElementById('prices-wipe');
+
+	distinctCity(city, pricesWipe);
+
+	var wipelist = document.getElementsByClassName('wipe');
+	doWipe(wipelist);
+
 </script>
 
-<script src="dist/js/mowe.min.js"></script>
+<script src="js/mowe.js"></script>
 
 </body>
 </html>

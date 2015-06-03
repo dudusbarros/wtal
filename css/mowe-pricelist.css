@@ -10,6 +10,8 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -195,4 +197,8 @@
 .pricelist .content li:hover .action {
 	opacity: 1;
 	transition: none;
+}
+
+.pricelist.hidden-price .content li .title {
+	font-size: 3em;
 }

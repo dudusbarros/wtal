@@ -1,13 +1,17 @@
 var gulp = require('gulp'),
 		concat = require('gulp-concat'),
 		concatcss = require('gulp-concat-css'),
+		imagemin = require('gulp-imagemin'),
 		jshint = require('gulp-jshint'),
 		minifycss = require('gulp-minify-css'),
+		pngquant = require('imagemin-pngquant'),
 		rename = require('gulp-rename'),
+		sourcemaps = require('gulp-sourcemaps'),
 		uglify = require('gulp-uglify');
 
-var cssfiles = 'css/*.css';
-var jsfiles = 'js/*.js';
+var cssfiles = 'css/*.css',
+		imgfiles = 'img/*',
+		jsfiles = 'js/*.js';
 
 gulp.task('villa', function() {
 	gulp.src(['css/villa-foundation.css', 'css/villa.css', 'css/villa-grid.css'])
@@ -49,14 +53,24 @@ gulp.task('js', function() {
 			.pipe(jshint())
 			.pipe(jshint.reporter('default'))
 			.pipe(gulp.dest('dist/js'));
-	gulp.src(['dist/js/villa.js', 'dist/js/mowe.js'])
-			.pipe(uglify({
-				preserveComments: 'some'
-			}))
+	gulp.src(['dist/js/villa.js', 'dist/js/mowe.js', 'dist/js/app.js'])
 			.pipe(rename({
 				extname: '.min.js'
 			}))
+			.pipe(uglify({
+				preserveComments: 'some'
+			}))
 			.pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('img', function() {
+	gulp.src(imgfiles)
+			.pipe(imagemin({
+				progressive: true,
+				svgoPlugins: [{removeViewBox: false}],
+				use: [pngquant()]
+			}))
+			.pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('default', function() {
@@ -64,5 +78,4 @@ gulp.task('default', function() {
 	var js = ['js'];
 	gulp.watch(cssfiles, css);
 	gulp.watch(jsfiles, js);
-
 });

@@ -4,11 +4,6 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
 
-var _emailService = 'eduardo@noibe.com';
-var _emailServiceURL = 'http://letsmowe.com/wtal/api/wtal/';
-var emailServiceCount = 4;
-var emailServiceClickCount = 8;
-
 $('#prices-scroll').click(function () {
 	$("html, body").animate({
 		scrollTop: $('#prices').offset().top
@@ -41,114 +36,6 @@ window.onload = function () {
 		startName: "slide",
 		target: $("#prices")
 	});
-
-	/* CONTACT FUNCTIONS START HERE */
-
-	// Append forms
-	var contactForm = '<a class="action user-unselect cursor-pointer" data-toggle="contact-form">Assine Já</a>' +
-		'<input type="text" class="contact-form" name="name" placeholder="Nome" autocomplete="off"/>' +
-		'<input type="tel" class="contact-form" name="phone" placeholder="Telefone (apenas números)" autocomplete="off" maxlength="11"/>' +
-		'<input type="submit" class="contact-form action send user-unselect cursor-pointer" value="Solicitar Contato!"/>' +
-		'<span class="action sent">Obrigado! :D<br/>Entraremos em contato em breve!</span>' +
-		'<span class="action not-sent">Ops! :(<br/>Houve algum problema! Tente novamente mais tarde!</span>';
-
-	$('.pricelist .content > li').insertHTML(contactForm);
-
-	// Add mask to phone fields
-	//$('.pricelist .content > li [name=phone]').mask('(99) 999999999');
-
-	// Active form
-	$('.pricelist .content > li [data-toggle=contact-form]').click(function() {
-		// Remove Success and Fail class and fix de title
-		$('.pricelist .content > .success').removeClass('success').
-			find('[data-toggle=contact-form]').
-			html('Assine Já');
-		$('.pricelist .content > .fail').removeClass('fail').
-			find('[data-toggle=contact-form]').
-			html('Assine Já');
-
-		// Get the Parent and some possible element with form enabled
-		var a = $(this).parent(), b, c;
-
-		// If the current element has active, disable it
-		if ($(a).hasClass('active-form')) {
-			$(a).removeClass('active-form');
-			// Fix the title of button
-			$(a).find('[data-toggle=contact-form]').html('Assine Já');
-			b = true;
-		}
-
-		// Disable the form of any element with form enabled
-		c = $('.pricelist .content > .active-form');
-		if (c.length) {
-			$(c).removeClass('active-form');
-			// Fix the title of button of enabled itens
-			$(c).find('[data-toggle=contact-form]').html('Assine Já');
-		}
-
-		// IF var b is ok, enable the form of current element
-		if (!b) {
-			// Enable the form of current element
-			$(a).addClass('active-form');
-
-			// Add the fallback to title of button
-			$(this).html('Voltar');
-
-			$(a).find('[name=name]').focus();
-		}
-
-	});
-
-	// Send response to server
-	$('.pricelist .content > li .send').click(function() {
-		var a = $(this).parent();
-		var aa = $(a).find('[name=name]').val();
-		var ab = $(a).find('[name=phone]').val();
-
-		// Test number of clicks to request (MAX = 4)
-		if (emailServiceClickCount > 0) {
-
-			// Test if fields are null
-			if ((aa.length > 0) && (ab.length > 0)) {
-				emailServiceClickCount--;
-				var b = $(a).parent().parent();
-				var	c = {
-					name: aa,
-					phone: ab,
-					product: $(a).find('.title').html(),
-					reference: $(b).attr('data-product-reference'),
-					mail: _emailService
-				};
-				// Test number of requests (MAX = 4)
-				if (emailServiceCount > 0) {
-					$.ajax({
-						cache: false,
-						data: c,
-						fail: function(data) {
-							$(a).removeClass('active-form');
-							$(a).addClass('fail');
-						},
-						success: function(data) {
-							$(a).removeClass('active-form');
-							$(a).addClass('success');
-							emailServiceCount--;
-						},
-						url: _emailServiceURL
-					});
-				} else {
-					$(a).removeClass('active-form');
-					$(a).addClass('fail');
-				}
-			} else {
-				alert('Campos vazios');
-			}
-		} else {
-			$(a).removeClass('active-form');
-			$(a).addClass('fail');
-		}
-	});
-
-	/* CONTACT FUNCTIONS ENDS HERE */
 
 };
 

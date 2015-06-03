@@ -469,6 +469,24 @@ body > footer .about {
 	}
 }
 
+.wipe {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	overflow-x: visible;
+	-webkit-transition: margin .6s;
+	-moz-transition: margin .6s;
+	-ms-transition: margin .6s;
+	-o-transition: margin .6s;
+	transition: margin .6s;
+}
+
+.wipe .frame {
+	width: 100%;
+}
+
 /*
 	[1] http://practicaltypography.com/line-spacing.html
 	[2] http://practicaltypography.com/space-between-paragraphs.html
