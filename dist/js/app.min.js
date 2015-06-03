@@ -1,5 +1,5 @@
 /*!
- * Mowe Webtal Project v0.9.0 (http://gomowe.org/)
+ * Mowe Webtal Project v0.9.9 (http://gomowe.org/)
  * Copyright 2013-2015 Noibe Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */

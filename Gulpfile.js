@@ -77,5 +77,5 @@ gulp.task('default', function() {
 	var css = ['villa', 'mowe', 'wtal'];
 	var js = ['js'];
 	gulp.watch(cssfiles, css);
-	gulp.watch(jsfiles, js);
+	gulp.watch(jsfiles, ['js']);
 });
