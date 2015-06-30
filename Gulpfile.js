@@ -1,12 +1,10 @@
 var gulp = require('gulp'),
 		concat = require('gulp-concat'),
-		concatcss = require('gulp-concat-css'),
 		imagemin = require('gulp-imagemin'),
 		jshint = require('gulp-jshint'),
 		minifycss = require('gulp-minify-css'),
 		pngquant = require('imagemin-pngquant'),
 		rename = require('gulp-rename'),
-		sourcemaps = require('gulp-sourcemaps'),
 		uglify = require('gulp-uglify');
 
 var cssfiles = 'css/*.css',

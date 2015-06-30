@@ -220,4 +220,40 @@ function doWipe(a) {
 		a[i].style.width = a[i].getElementsByClassName('frame').length * 100 + '%';
 }
 
+var callDistinct;
+callDistinct = function() {
+	var a, b, i;
+	a = document.getElementById('city');
+	b = document.getElementById('prices-wipe');
+	for (i = a.length; i--; )
+		if (a[i].value == this.innerHTML)
+			a[i].selected = true;
+	doCityDistinct(a, b);
+	var m = document.getElementsByClassName('modal-container');
+	for (i = m.length; i--; )
+		m[i].classList.remove('open');
+};
+
+var buildCityList;
+buildCityList = function() {
+	var a = document.getElementById('citylist');
+	var c = document.getElementById('city').getElementsByTagName('option');
+	var e = document.createElement('div');
+	e.classList.add('container');
+	var n = c.length;
+	for (var i = 0; i < n; i++) {
+		var d = document.createElement('div');
+		var ea = document.createElement('button');
+		ea.classList.add('city');
+		ea.addEventListener('click', callDistinct, false);
+
+		var eaa = document.createTextNode(c[i].value);
+
+		ea.appendChild(eaa);
+		d.appendChild(ea);
+		e.appendChild(d);
+	}
+	a.insertBefore(e, a.lastChild);
+};
+
 window.addEventListener('load', appendForm);

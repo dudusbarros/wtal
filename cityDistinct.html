@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 	<script src="dist/js/html5shiv.js"></script>
 	<script src="dist/js/html5shiv-printshiv.js"></script>
+	<script src="dist/js/classList.min.js"></script>
 	<![endif]-->
 </head>
 <body>
@@ -24,6 +25,8 @@
 	}
 
 </style>
+
+	<div id="citylist" class="block"></div>
 
 	<div id="prices" class="block teal-900 font-white">
 
@@ -250,6 +253,8 @@
 
 	var wipelist = document.getElementsByClassName('wipe');
 	doWipe(wipelist);
+
+	buildCityList();
 
 </script>
 

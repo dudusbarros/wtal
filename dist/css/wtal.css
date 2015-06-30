@@ -251,6 +251,10 @@ body > footer .divisor {
 }
 
 body > footer {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-flow: row;
 	justify-content: space-around;
@@ -258,6 +262,10 @@ body > footer {
 }
 
 body > footer .about {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
@@ -486,6 +494,92 @@ body > footer .about {
 
 .wipe .frame {
 	width: 100%;
+}
+
+.modal-container {
+	background-color: rgba(0,0,0,0);
+	display: none;
+}
+
+.modal-container.open {
+	align-items: center;
+	background-color: rgba(0,0,0,.4);
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	position: fixed;
+	top: 0;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+	width: 100%;
+	z-index: 100000;
+}
+
+.modal-container.open .modal {
+
+}
+
+.modal-container.open .modal {
+	background-color: #ffffff;
+	color: #424242;
+	padding: 3em;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+.modal .citylist {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	margin-top: 3em;
+}
+
+.modal h2 {
+	font-weight: 100;
+}
+
+#citylist .container {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	list-style: none;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#citylist button {
+	border: solid 1px #757575;
+	cursor: pointer;
+	line-height: 2;
+	padding: .5em 1em;
+	text-transform: capitalize;
+}
+
+#citylist button:hover {
+	background-color: #757575;
+	color: #ffffff;
+}
+
+#citylist button:focus {
+	border-color: #616161;
+	background-color: #616161;
+	color: #ffffff;
 }
 
 /*

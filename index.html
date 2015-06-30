@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<!doctype html>
+<html lang="pt-br">
 <head>
 	<meta charset="utf-8"/>
 	<title>Webtal Telecom</title>
@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 	<script src="dist/js/html5shiv.js"></script>
 	<script src="dist/js/html5shiv-printshiv.js"></script>
+	<script src="dist/js/classList.min.js"></script>
 	<![endif]-->
 </head>
 <body class="navbar-fixed">
@@ -104,6 +105,13 @@
 
 	</div>
 
+</div>
+
+<div class="modal-container open">
+	<div class="modal">
+		<h2>Selecione a sua cidade:</h2>
+		<div id="citylist" class="citylist"></div>
+	</div>
 </div>
 
 <div id="about" class="services block grey-50 font-grey-800">
@@ -354,14 +362,15 @@
 	<div class="divisor"></div>
 	<div class="about">
 		<a href="//letsmowe.com">
-			<img src="./img/ad.png" alt="Mowe & Kabanas Info"/>
+			<img src="img/ad.png" alt="Mowe & Kabanas Info"/>
 		</a>
 		<span class="copyright">Desenvolvimento</span>
 	</div>
 </footer>
 
 <script src="dist/js/jquery-2.1.1.min.js"></script>
-<script src="dist/js/app.js"></script>
+<script src="dist/js/app.min.js"></script>
+<script src="dist/js/mowe.min.js"></script>
 <script>
 
 	var city = document.getElementById('city');
@@ -371,8 +380,12 @@
 	var wipelist = document.getElementsByClassName('wipe');
 	doWipe(wipelist);
 
+	buildCityList();
+
+	var g = document.getElementById('citylist').getElementsByTagName('button')[0];
+	g.focus();
+
 </script>
-<script src="dist/js/mowe.min.js"></script>
 
 <script>
 
