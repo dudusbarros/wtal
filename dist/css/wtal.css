@@ -576,11 +576,7 @@ body > footer .about {
 	color: #ffffff;
 }
 
-#citylist button:focus {
-	border-color: #616161;
-	background-color: #616161;
-	color: #ffffff;
-}
+
 
 /*
 	[1] http://practicaltypography.com/line-spacing.html
