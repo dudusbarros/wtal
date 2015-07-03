@@ -4,16 +4,14 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
 */
 
-.block-1 .navbar {
-	background-color: #fafafa;
-}
 
-.block-2 .navbar {
-	/*background-color: rgba(0,0,0,.1);*/
-}
+.navbar {
 
-.block-3 .navbar {
-	background-color: #004d40;
+	background: -webkit-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* W3C */
 }
 
 .block-1 .navbar footer .menu {
@@ -575,8 +573,6 @@ body > footer .about {
 	background-color: #757575;
 	color: #ffffff;
 }
-
-
 
 /*
 	[1] http://practicaltypography.com/line-spacing.html

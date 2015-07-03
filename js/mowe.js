@@ -25,11 +25,6 @@ $('.navbar header .toggle').click(function () {
 
 window.onload = function () {
 
-	$('.block').scrollList({
-		beforePadding: 65,
-		startName: "block"
-	});
-
 	$('#prices .slide .nav>li').distinct({
 		content: $("#prices .slide .content .pricelist"),
 		defaultClass: $("#prices").attr("class"),
