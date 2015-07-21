@@ -5,16 +5,25 @@
 */
 
 
-.navbar {
 
+.navbar,
+.block-1 .navbar,
+.block-2 .navbar,
+.block-3 .navbar,
+.block-4 .navbar {
 	background: -webkit-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* Chrome 10+, Saf5.1+ */
 	background:    -moz-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* FF3.6+ */
 	background:     -ms-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* IE10 */
 	background:      -o-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* Opera 11.10+ */
 	background:         linear-gradient(90deg, #00695c 10%, #004d40 90%); /* W3C */
+	-webkit-transition: all 9s;
+	-moz-transition: all 9s;
+	-ms-transition: all 9s;
+	-o-transition: all 9s;
+	transition: all 9s;
 }
 
-.block-1 .navbar footer .menu {
+/*.block-1 .navbar footer .menu {
 	color: #66bb6a;
 }
 
@@ -34,7 +43,7 @@
 
 .block-3 .navbar #bg path {
 	stroke: #fff !important;
-}
+}*/
 
 @media (max-width: 768px) {
 	.navbar .brand {
