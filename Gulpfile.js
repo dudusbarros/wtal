@@ -11,30 +11,6 @@ var cssfiles = 'css/*.css',
 		imgfiles = 'img/*',
 		jsfiles = 'js/*.js';
 
-gulp.task('villa', function() {
-	gulp.src(['css/villa-foundation.css', 'css/villa.css', 'css/villa-grid.css'])
-			.pipe(concat('villa.css'))
-			.pipe(gulp.dest('dist/css'));
-	gulp.src('dist/css/villa.css')
-			.pipe(minifycss())
-			.pipe(rename({
-				extname: '.min.css'
-			}))
-			.pipe(gulp.dest('dist/css'));
-});
-
-gulp.task('mowe', function() {
-	gulp.src('css/mowe*.css')
-			.pipe(concat('mowe.css'))
-			.pipe(gulp.dest('dist/css'));
-	gulp.src('dist/css/mowe.css')
-			.pipe(minifycss())
-			.pipe(rename({
-				extname: '.min.css'
-			}))
-			.pipe(gulp.dest('dist/css'));
-});
-
 gulp.task('wtal', function() {
 	gulp.src('css/wtal.css')
 			.pipe(gulp.dest('dist/css'));

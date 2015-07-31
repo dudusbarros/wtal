@@ -4,10 +4,21 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
 
-var _emailService = 'eduardo@noibe.com';
+var _emailService = 'comercial.webtal@gmail.com';
 var _emailServiceURL = 'http://letsmowe.com/wtal/i/mail/';
 var emailServiceCount = 4;
 var emailServiceClickCount = 8;
+
+window.onload = function () {
+
+	$('#prices .slide .nav>li').distinct({
+		content: $("#prices .slide .content .pricelist"),
+		defaultClass: $("#prices").attr("class"),
+		startName: "slide",
+		target: $("#prices")
+	});
+
+};
 
 /* CONTACT FUNCTIONS START HERE */
 
@@ -226,7 +237,7 @@ callDistinct = function() {
 	a = document.getElementById('city');
 	b = document.getElementById('prices-wipe');
 	for (i = a.length; i--; )
-		if (a[i].value == this.innerHTML)
+		if (a[i].value == this.value)
 			a[i].selected = true;
 	doCityDistinct(a, b);
 	var m = document.getElementsByClassName('modal-container');
@@ -242,12 +253,14 @@ buildCityList = function() {
 	e.classList.add('container');
 	var n = c.length;
 	for (var i = 0; i < n; i++) {
+
 		var d = document.createElement('div');
 		var ea = document.createElement('button');
 		ea.classList.add('city');
 		ea.addEventListener('click', callDistinct, false);
+		ea.setAttribute('value', c[i].value);
 
-		var eaa = document.createTextNode(c[i].value);
+		var eaa = document.createTextNode(c[i].innerHTML);
 
 		ea.appendChild(eaa);
 		d.appendChild(ea);

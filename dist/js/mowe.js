@@ -23,22 +23,6 @@ $('.navbar header .toggle').click(function () {
 	$(this).closest('.navbar').find('.menu').toggleClass('show');
 });
 
-window.onload = function () {
-
-	$('.block').scrollList({
-		beforePadding: 65,
-		startName: "block"
-	});
-
-	$('#prices .slide .nav>li').distinct({
-		content: $("#prices .slide .content .pricelist"),
-		defaultClass: $("#prices").attr("class"),
-		startName: "slide",
-		target: $("#prices")
-	});
-
-};
-
 /* Mowe Distinct v0.1.0 */
 
 (function ($) {

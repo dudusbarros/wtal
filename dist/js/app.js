@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
 
-var _emailService = 'eduardo@noibe.com';
+var _emailService = 'comercial.webtal@gmail.com';
 var _emailServiceURL = 'http://letsmowe.com/wtal/i/mail/';
 var emailServiceCount = 4;
 var emailServiceClickCount = 8;

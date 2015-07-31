@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="dist/css/mowe.min.css"/>
 	<link rel="stylesheet" href="css/wtal.css"/>
 	<!--[if lt IE 9]>
-	<link rel="stylesheet" type="text/css" href="dist/css/villac.css"/>
 	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 	<script src="dist/js/html5shiv.js"></script>
 	<script src="dist/js/html5shiv-printshiv.js"></script>
@@ -23,12 +22,14 @@
 <div class="navbar fixed-sm font-white user-unselect">
 	<div class="full wide container">
 
-		<header class="bg-sm white">
+		<header class="bg-sm">
 
 			<div class="item">
+
 				<a class="brand" href="#">
-					<span class="brand-text">WEBTal<!--<span class="slogan">telecom</span>--></span>
+					<img src="img/logotype.png" alt="Webtal Telecom"/>
 				</a>
+
 				<a class="logo font-grey-700" href="#">
 					<svg id="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
 						<g>
@@ -38,9 +39,11 @@
 						</g>
 					</svg>
 				</a>
+
 			</div>
 
 			<button class="toggle teal-a400 font-white">
+
 				<svg version="1.1" id="bars" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
 					<g>
 						<line class="st0" x1="99.1" y1="182.2" x2="1000" y2="182.2"/>
@@ -48,13 +51,14 @@
 						<line class="st0" x1="99.1" y1="817.8" x2="1000" y2="817.8"/>
 					</g>
 				</svg>
+
 			</button>
 
 		</header>
 
 		<footer>
 
-			<div class="menu bg-sm white font-white">
+			<div class="menu bg-sm font-white">
 				<div class="item">
 					<a class="link hfont-green-a400" href="#prices">Planos</a>
 				</div>
@@ -72,27 +76,18 @@
 	</div>
 </div>
 
-<div class="hero green-300 bg-cover font-white height-window" id="foo" height-offset="0">
+<div class="hero green-300 bg-cover font-white height-window" height-offset="0">
 
 	<div class="wide container flex flex-wrap">
 
-		<div class="welcome flex-3">
+		<div class="welcome grow-3">
 			<h1>Bem vindo à<br/><strong>Webtal Telecom</strong>!</h1>
 		</div>
 
-		<div class="promo flex-2 font-grey-50">
+		<div class="promo grow-2 font-grey-50">
 			<div id="promo01">
 				<p>
-					<span class="small">Tenha a <strong>melhor Internet</strong> da região</span>
-				</p>
-				<p>
-					<span class="x-small">
-						<em>a partir de</em>
-					</span>
-					<strong>
-						<span class="price">29</span>
-						<span class="cents">,90</span>
-					</strong>
+					<span class="small">Tenha a melhor internet pelo melhor custo e benefício da região</span>
 				</p>
 			</div>
 			<a href="#" id="prices-scroll" class="btn">Conheça nossos planos</a>
@@ -128,7 +123,7 @@
 		<p>A ampliação e a modernização permanente das redes de distribuição de sinal de internet e a confiança dos clientes tornou o provedor WEBTal Telecom sinônimo de inovação desde o início de sua operação comercial, em junho de 2001.
 		</p>
 
-		<p>Com o trabalho consolidado de bons serviços prestados, é uma empresa que oferece o melhor de cada tecnologia disponível aos usuários, desde a rede wireless (sem fio), até as modernas redes de fibra óptica expandidas nos municípios de Palmital, Ibirarema e Platina e nos distritos de Nova Alexandria e Nossa Senhora Aparecida (PR), além de grande número de propriedades e empresas rurais dos municípios de Andirá (PR), Cândido Mota e Ribeirão do Sul.
+		<p>Com o trabalho consolidado de bons serviços prestados, é uma empresa que oferece o melhor de cada tecnologia disponível aos usuários, desde a rede wireless (sem fio), até as modernas redes de fibra óptica expandidas nos municípios de Palmital, Ibirarema e Platina e nos distritos de Nova Alexandria e Nossa Senhora Aparecida (PR), além de grande número de propriedades rurais e empresas dos municípios de Andirá (PR), Cândido Mota e Ribeirão do Sul.
 		</p>
 
 		<span class="full-wide bg-cover photo"></span>
@@ -168,6 +163,10 @@
 				<option value="palmital" selected>Palmital</option>
 				<option value="ibirarema">Ibirarema</option>
 				<option value="platina">Platina</option>
+				<option value="demais-localidades">Demais Localidades</option>
+				<!--
+					TODO - Remover espaços
+				-->
 			</select>
 		</div>
 	</div>
@@ -183,6 +182,7 @@
 					<ul class="nav pills">
 						<li>Residencial</li>
 						<li>Rural</li>
+						<li>Empresarial</li>
 					</ul>
 
 					<ul class="content">
@@ -224,6 +224,31 @@
 								</li>
 								<li>
 									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+						<li class="pricelist hidden-price" data-product-reference="empresarial">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">10 Mega</span>
 									<span class="description">Upload: 1 MEGA</span>
 								</li>
 							</ul>
@@ -246,6 +271,7 @@
 					<ul class="nav pills">
 						<li>Residencial</li>
 						<li>Rural</li>
+						<li>Empresarial</li>
 					</ul>
 
 					<ul class="content">
@@ -272,6 +298,27 @@
 						</li>
 
 						<li class="pricelist hidden-price" data-product-reference="rural">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+						<li class="pricelist hidden-price" data-product-reference="empresarial">
 							<ul class="content">
 								<li>
 									<span class="title">1 Mega</span>
@@ -309,6 +356,7 @@
 					<ul class="nav pills">
 						<li>Residencial</li>
 						<li>Rural</li>
+						<li>Empresarial</li>
 					</ul>
 
 					<ul class="content">
@@ -355,6 +403,112 @@
 							</ul>
 						</li>
 
+						<li class="pricelist hidden-price" data-product-reference="empresarial">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="frame pricelist-platina">
+
+			<div class="container wide">
+
+				<div class="slide">
+
+					<ul class="nav pills">
+						<li>Residencial</li>
+						<li>Rural</li>
+						<li>Empresarial</li>
+					</ul>
+
+					<ul class="content">
+
+						<li class="pricelist hidden-price" data-product-reference="residencial">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+						<li class="pricelist hidden-price" data-product-reference="rural">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
+						<li class="pricelist hidden-price" data-product-reference="empresarial">
+							<ul class="content">
+								<li>
+									<span class="title">1 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">2 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">3 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+								<li>
+									<span class="title">4 Mega</span>
+									<span class="description">Upload: 1 MEGA</span>
+								</li>
+							</ul>
+						</li>
+
 					</ul>
 
 				</div>
@@ -367,13 +521,13 @@
 
 </div>
 
-<footer id="contato" class="block grey-900 font-grey-600 border-grey-600">
-	<div class="about">
+<footer id="contato" class="block flex justify-around flex-wrap grey-900 font-grey-600 border-grey-600">
+	<div class="about flex flex-column align-center">
 		<span class="address">(18) 3351-3504 / Webtal Telecom, Palmital, SP, CEP 86375-000</span>
 		<span class="copyright">©Webtal Telecom 2015</span>
 	</div>
 	<div class="divisor"></div>
-	<div class="about">
+	<div class="about flex flex-column align-center">
 		<a href="//letsmowe.com">
 			<img src="dist/img/ad.png" alt="Mowe & Kabanas Info"/>
 		</a>
