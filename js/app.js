@@ -27,7 +27,7 @@ window.onload = function () {
  */
 var sendResponse;
 sendResponse = function() {
-	var a = $(this).parent();
+	var a = this.parentNode;
 	var aa = $(a).find('[name=name]').val();
 	var ab = $(a).find('[name=phone]').val();
 	var ac = document.getElementById('city').value;
@@ -50,7 +50,10 @@ sendResponse = function() {
 			};
 			// Test number of requests (MAX = 4)
 			if (emailServiceCount > 0) {
-				$.ajax({
+				console.log('enviando email');
+				emailServiceCount--;
+				console.log(c);
+				/*$.ajax({
 					cache: false,
 					data: c,
 					error: function(data) {
@@ -63,7 +66,7 @@ sendResponse = function() {
 						emailServiceCount--;
 					},
 					url: _emailServiceURL
-				});
+				});*/
 			} else {
 				$(a).removeClass('active-form');
 				$(a).addClass('fail');
@@ -82,6 +85,12 @@ sendResponse = function() {
  */
 var toggleForm;
 toggleForm = function() {
+
+	var a = this.parentNode;
+
+	if (!a.classList.contains('active')) a.classList.add('active');
+	else a.classList.remove('active');
+	/*
 	// Remove Success and Fail class and fix de title
 	$('.pricelist .content > .success').removeClass('success').
 			find('[data-toggle=contact-form]').
@@ -119,7 +128,38 @@ toggleForm = function() {
 
 		$(a).find('[name=name]').focus();
 	}
+	*/
 
+};
+
+var buildForm;
+buildForm = function(e) {
+	var link = document.createElement('a');
+	link.setAttribute('class', 'action user-unselect cursor-pointer toggle-contact-form');
+
+	var inputName = document.createElement('input');
+	inputName.type = 'text';
+	inputName.setAttribute('class', 'contact-form');
+	inputName.setAttribute('name', 'name');
+	inputName.setAttribute('placeholder', 'Nome');
+	inputName.setAttribute('autocomplete', 'off');
+
+	var inputPhone = document.createElement('input');
+	inputPhone.type = 'tel';
+	inputPhone.setAttribute('class', 'contact-form');
+	inputPhone.setAttribute('name', 'phone');
+	inputPhone.setAttribute('placeholder', 'Telefone (apenas números)');
+	inputPhone.setAttribute('autocomplete', 'off');
+
+	var inputSubmit = document.createElement('input');
+	inputSubmit.type = 'submit';
+	inputSubmit.setAttribute('class', 'contact-form action response-send user-unselect cursor-pointer');
+	inputSubmit.value = "Solicitar Contato!";
+
+	e.appendChild(link);
+	e.appendChild(inputName);
+	e.appendChild(inputPhone);
+	e.appendChild(inputSubmit);
 };
 
 /**
@@ -127,20 +167,27 @@ toggleForm = function() {
  */
 var appendForm;
 appendForm = function() {
-	var contactForm = '<a class="action user-unselect cursor-pointer toggle-contact-form">Assine Já</a>' +
-			'<input type="text" class="contact-form" name="name" placeholder="Nome" autocomplete="off"/>' +
-			'<input type="tel" class="contact-form" name="phone" placeholder="Telefone (apenas números)" autocomplete="off" maxlength="11"/>' +
-			'<input type="submit" class="contact-form action response-send user-unselect cursor-pointer" value="Solicitar Contato!"/>' +
-			'<span class="action sent">Obrigado! :D<br/>Entraremos em contato em breve!</span>' +
-			'<span class="action not-sent">Ops! :(<br/>Houve algum problema! Tente novamente mais tarde!</span>';
+	var i;
+
+	var contactForm = '<a class="action user-unselect cursor-pointer toggle-contact-form"></a>' +
+		'<input type="text" class="contact-form" name="name" placeholder="Nome" autocomplete="off"/>' +
+		'<input type="tel" class="contact-form" name="phone" placeholder="Telefone (apenas números)" autocomplete="off" maxlength="11"/>' +
+		'<input type="submit" class="contact-form action response-send user-unselect cursor-pointer" value="Solicitar Contato!"/>' +
+		'<span class="action sent">Obrigado! :D<br/>Entraremos em contato em breve!</span>' +
+		'<span class="action not-sent">Ops! :(<br/>Houve algum problema! Tente novamente mais tarde!</span>';
 
 	// Do the append
-	$('.pricelist .content > li').insertHTML(contactForm);
+	//$('.pricelist .content > li').insertHTML(contactForm);
+
+	var pricelistItems = document.querySelectorAll('.pricelist .content > li');
+
+	for (i = pricelistItems.length; i--; ) {
+		var item = pricelistItems[i];
+		buildForm(item);
+	}
 
 	var toggleFormBtn = document.getElementsByClassName('toggle-contact-form');
 	var sendBtn = document.getElementsByClassName('response-send');
-
-	var i;
 
 	for (i = toggleFormBtn.length; i--; )
 		toggleFormBtn[i].addEventListener('click', toggleForm);
@@ -149,124 +196,6 @@ appendForm = function() {
 		sendBtn[i].addEventListener('click', sendResponse);
 };
 
-/* CONTACT FUNCTIONS ENDS HERE */
-
-/**
- * Set the margin of ruler element
- * @param a target element (ruler)
- * @param n number of nodes
- */
-var citySetMargin;
-citySetMargin = function(a, n) {
-	a.style.marginLeft = n * 100 + '%';
-};
-
-/**
- * Set the class based on value
- * @param a event target
- * @param b target element (ruler)
- * @param v value
- */
-var citySetClass;
-citySetClass = function(a, b, v) {
-	for (var i = a.length; i--; )
-		b.classList.remove(a[i].value);
-	b.classList.add(v);
-};
-
-/**
- * Get the node index
- * @param a event target
- * @param v value
- * return int
- */
-var cityGetIndex;
-cityGetIndex = function(a, v) {
-	for (var i = a.length; i--; )
-		if (a[i].value == v)
-			return -i;
-	return 0;
-};
-
-/**
- * Do the distinct
- * @param a event target
- * @param b target element (ruler)
- */
-var doCityDistinct;
-doCityDistinct = function(a, b) {
-	var n, v;
-
-	v = a.value;
-	n = cityGetIndex(a.children, v);
-
-	citySetClass(a.children, b, v);
-	citySetMargin(b, n);
-};
-
-/**
- * Handler the functions to init the distinct
- */
-var cityHandler;
-cityHandler = function() {
-	doCityDistinct(this, this.b);
-};
-
-/**
- * Add event listener to element
- * @param a element
- * @param b target element (ruler)
- */
-function distinctCity (a, b) {
-	a.addEventListener('change', cityHandler, false);
-	a.b = b;
-	doCityDistinct(a, b);
-}
-
-/**
- * Wipe Lib Venus
- */
-function doWipe(a) {
-	for (var i = a.length; i--; )
-		a[i].style.width = a[i].getElementsByClassName('frame').length * 100 + '%';
-}
-
-var callDistinct;
-callDistinct = function() {
-	var a, b, i;
-	a = document.getElementById('city');
-	b = document.getElementById('prices-wipe');
-	for (i = a.length; i--; )
-		if (a[i].value == this.value)
-			a[i].selected = true;
-	doCityDistinct(a, b);
-	var m = document.getElementsByClassName('modal-container');
-	for (i = m.length; i--; )
-		m[i].classList.remove('open');
-};
-
-var buildCityList;
-buildCityList = function() {
-	var a = document.getElementById('citylist');
-	var c = document.getElementById('city').getElementsByTagName('option');
-	var e = document.createElement('div');
-	e.classList.add('container');
-	var n = c.length;
-	for (var i = 0; i < n; i++) {
-
-		var d = document.createElement('div');
-		var ea = document.createElement('button');
-		ea.classList.add('city');
-		ea.addEventListener('click', callDistinct, false);
-		ea.setAttribute('value', c[i].value);
-
-		var eaa = document.createTextNode(c[i].innerHTML);
-
-		ea.appendChild(eaa);
-		d.appendChild(ea);
-		e.appendChild(d);
-	}
-	a.insertBefore(e, a.lastChild);
-};
-
 window.addEventListener('load', appendForm);
+
+/* CONTACT FUNCTIONS ENDS HERE */

@@ -6,10 +6,10 @@
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 	<script src="dist/js/villa.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>-->
+	<link rel="stylesheet" href="css/wtal.css"/>
 	<link rel="stylesheet" href="dist/css/villa.min.css"/>
 	<link rel="stylesheet" href="dist/css/mowe.min.css"/>
-	<link rel="stylesheet" href="css/wtal.css"/>
 	<!--[if lt IE 9]>
 	<link rel="stylesheet" type="text/css" href="dist/css/material-colors.css"/>
 	<script src="dist/js/html5shiv.js"></script>
@@ -523,12 +523,12 @@
 
 <footer id="contato" class="block flex justify-around flex-wrap grey-900 font-grey-600 border-grey-600">
 	<div class="about flex flex-column align-center">
-		<span class="address">(18) 3351-3504 / Webtal Telecom, Palmital, SP, CEP 86375-000</span>
+		<span class="address">(18) 3351-2122 / Webtal Telecom, Palmital, SP, CEP 19970-000</span>
 		<span class="copyright">©Webtal Telecom 2015</span>
 	</div>
 	<div class="divisor"></div>
 	<div class="about flex flex-column align-center">
-		<a href="//letsmowe.com">
+		<a href="//kabanas.info">
 			<img src="dist/img/ad.png" alt="Mowe & Kabanas Info"/>
 		</a>
 		<span class="copyright">Desenvolvimento</span>
@@ -539,6 +539,124 @@
 <script src="js/app.js"></script>
 <script src="js/mowe.js"></script>
 <script>
+
+	/**
+	 * Set the margin of ruler element
+	 * @param a target element (ruler)
+	 * @param n number of nodes
+	 */
+	var citySetMargin;
+	citySetMargin = function(a, n) {
+		a.style.marginLeft = n * 100 + '%';
+	};
+
+	/**
+	 * Set the class based on value
+	 * @param a event target
+	 * @param b target element (ruler)
+	 * @param v value
+	 */
+	var citySetClass;
+	citySetClass = function(a, b, v) {
+		for (var i = a.length; i--; )
+			b.classList.remove(a[i].value);
+		b.classList.add(v);
+	};
+
+	/**
+	 * Get the node index
+	 * @param a event target
+	 * @param v value
+	 * return int
+	 */
+	var cityGetIndex;
+	cityGetIndex = function(a, v) {
+		for (var i = a.length; i--; )
+			if (a[i].value == v)
+				return -i;
+		return 0;
+	};
+
+	/**
+	 * Do the distinct
+	 * @param a event target
+	 * @param b target element (ruler)
+	 */
+	var doCityDistinct;
+	doCityDistinct = function(a, b) {
+		var n, v;
+
+		v = a.value;
+		n = cityGetIndex(a.children, v);
+
+		citySetClass(a.children, b, v);
+		citySetMargin(b, n);
+	};
+
+	/**
+	 * Handler the functions to init the distinct
+	 */
+	var cityHandler;
+	cityHandler = function() {
+		doCityDistinct(this, this.b);
+	};
+
+	/**
+	 * Add event listener to element
+	 * @param a element
+	 * @param b target element (ruler)
+	 */
+	function distinctCity (a, b) {
+		a.addEventListener('change', cityHandler, false);
+		a.b = b;
+		doCityDistinct(a, b);
+	}
+
+	/**
+	 * Wipe Lib Venus
+	 */
+	function doWipe(a) {
+		for (var i = a.length; i--; )
+			a[i].style.width = a[i].getElementsByClassName('frame').length * 100 + '%';
+	}
+
+	var callDistinct;
+	callDistinct = function() {
+		var a, b, i;
+		a = document.getElementById('city');
+		b = document.getElementById('prices-wipe');
+		for (i = a.length; i--; )
+			if (a[i].value == this.value)
+				a[i].selected = true;
+		doCityDistinct(a, b);
+		var m = document.getElementsByClassName('modal-container');
+		for (i = m.length; i--; )
+			m[i].classList.remove('open');
+	};
+
+	var buildCityList;
+	buildCityList = function() {
+		var a = document.getElementById('citylist');
+		var c = document.getElementById('city').getElementsByTagName('option');
+		var e = document.createElement('div');
+		e.classList.add('container');
+		var n = c.length;
+		for (var i = 0; i < n; i++) {
+
+			var d = document.createElement('div');
+			var ea = document.createElement('button');
+			ea.classList.add('city');
+			ea.addEventListener('click', callDistinct, false);
+			ea.setAttribute('value', c[i].value);
+
+			var eaa = document.createTextNode(c[i].innerHTML);
+
+			ea.appendChild(eaa);
+			d.appendChild(ea);
+			e.appendChild(d);
+		}
+		a.insertBefore(e, a.lastChild);
+	};
 
 	var city = document.getElementById('city');
 	var pricesWipe = document.getElementById('prices-wipe');

@@ -323,19 +323,152 @@ body > footer .divisor {
 	margin-bottom: 2em;
 }
 
+.pricelist .content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start
+}
+
+.pricelist .content li {
+	align-items: center;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 16em;
+	padding: 1.5em 1.5em 1em;
+	text-align: center
+}
+
+@media (min-width: 48em) {
+	.pricelist .content li {
+		padding: 2.25em 2.25em 1.5em;
+		max-width: 16em
+	}
+}
+
+@media (min-width: 60em) {
+	.pricelist .content {
+		flex-wrap: nowrap
+	}
+
+	.pricelist .content li {
+		padding: 2.25em 2.25em 1.5em;
+		max-width: 16em
+	}
+}
+
+@media (min-width: 72em) {
+	.pricelist .content li {
+		padding: 3em 3em 2.25em
+	}
+}
+
+.pricelist .content li .title {
+	border-bottom: solid 2px #666;
+	font-size: 1.125em;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	text-transform: uppercase
+}
+
+.pricelist .content li .price {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	min-width: 180px
+}
+
+.pricelist .content li .price .dollar {
+	font-size: 40px;
+	align-self: flex-start
+}
+
+.pricelist .content li .price .number {
+	font-size: 3.75em;
+	line-height: 1em;
+	align-self: center
+}
+
+.pricelist .content li .price .decimal {
+	align-self: flex-end
+}
+
+.pricelist .content li .description {
+	font-size: 15px;
+	margin: 15px 0;
+	color: #888
+}
+
+.pricelist .content li .action {
+	background-color: #00bfa5;
+	border: none;
+	border-radius: 25px;
+	font-size: 1em;
+	font-weight: 600;
+	color: #fff;
+	margin: 1em 0 .5em;
+	padding: 10px;
+	opacity: 0;
+	transition: none
+}
+
+.pricelist .content li:hover {
+	background-color: #fafafa;
+	color: #424242;
+	transition: background .3s linear
+}
+
+.pricelist .content li input {
+	background-color: #eee;
+	border: 2px solid #00bfa5;
+	border-radius: 2px;
+	color: #424242;
+	font-size: 1.125em;
+	font-weight: 300;
+	display: block;
+	margin-top: 1em;
+	padding: 8px 12px
+}
+
+.pricelist .content li:hover .title {
+	border-color: #fafafa
+}
+
+.pricelist .content li:hover .action {
+	opacity: 1;
+	transition: none
+}
+
+.pricelist.hidden-price .content li .title {
+	font-size: 3em
+}
+
 .pricelist .content li:hover .send {
 	opacity: 0;
 }
 
-.pricelist .content li .contact-form {
-	border-width: 0;
-	height: 0;
-	padding: 0;
-	margin: 0;
-	opacity: 0;
+.pricelist .content li .contact {
+	display: flex;
+	flex-direction: column;
 }
 
-.pricelist .content li.active-form input {
+.pricelist .content li .toggle-contact-form:before {
+	content: 'Assine Já!';
+}
+
+.pricelist .content li.active .toggle-contact-form:before {
+	content: 'Voltar';
+}
+
+.pricelist .content li input {
+	display: none;
+}
+
+.pricelist .content li.active input {
+	display: block;
 	border-width: 2px;
 	margin-top: 1em;
 	padding: 8px 12px;
@@ -347,7 +480,7 @@ body > footer .divisor {
 	transition: opacity .3s linear .15s;
 }
 
-.pricelist .content li.active-form .send {
+.pricelist .content li.active .send {
 	height: auto;
 	margin: 1em 0 .5em;
 	padding: 10px;
