@@ -9,7 +9,7 @@ $name = $_GET['name'];
 $phone = $_GET['phone'];
 $product = $_GET['product'];
 $reference = $_GET['reference'];
-$mail = $_GET['mail'];
+$email = $_GET['mail'];
 
 $reply = '101';
 
@@ -22,7 +22,7 @@ if ($emailService) {
 
 	$mail->CharSet = 'UTF-8';
 
-	    			$mail->SMTPDebug = 3;                                 // Enable verbose debug output
+	$mail->SMTPDebug = 3;                                 // Enable verbose debug output
 
 	$mail->isSMTP();                                      // Set mailer to use SMTP
 	$mail->Host = 'box729.bluehost.com';                  // Specify main and backup SMTP servers
@@ -33,15 +33,16 @@ if ($emailService) {
 	$mail->Port = 465;                                    // TCP port to connect to
 
 	// From
-	$mail->From = 'mrrango@noibe.com';
+	$mail->From = 'mailman@letsmowe.com';
 	$mail->FromName = 'Mowe Mailman';
 
 	// To
-	$mail->addAddress('joseeduardobarros@gmail.com', 'Eduardo');     // Send to Developer (test)
-//	$mail->addAddress('joseeduardo_barros@hotmail.com');             // Send to Developer (test)
+//	$mail->addAddress('joseeduardobarros@gmail.com', 'Eduardo');    // Send to Developer (test)
+//	$mail->addAddress($email, 'Receiver');                          // Send to Developer (test)
+//	$mail->addAddress('joseeduardo_barros@hotmail.com');            // Send to Developer (test)
 
 	// Additional To
-	$mail->addAddress($mail);          // Send to Someone
+	$mail->addAddress($email);          // Send to Someone
 
 	$mail->isHTML(true);                                  // Set email format to HTML
 
@@ -55,10 +56,10 @@ if ($emailService) {
 	$mail->AltBody = 'Nome: ' . $name . 'Telefone: ' . $phone . 'Produto ' . $product . '(' . ucwords(strtolower($reference)) . ')';
 
 	if (!$mail->send()) {
-	    				echo 'Message could not be sent.';
-    			echo 'Mailer Error: ' . $mail->ErrorInfo;
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
 	} else {
-  					echo 'Message has been sent';
+        echo 'Message has been sent';
 		/* 301 out = success insert */
 		$reply = "301";
 	}

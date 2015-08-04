@@ -1,11 +1,13 @@
 /*!
- * Mowe Webtal Project v0.9.9 (http://gomowe.org/)
+ * Mowe Webtal Project v1.0.0 (http://gomowe.org/)
  * Copyright 2013-2015 Noibe Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
 
 var _emailService = 'comercial.webtal@gmail.com';
+//_emailService = 'eduardo@kabanas.info';
 var _emailServiceURL = 'http://letsmowe.com/wtal/i/mail/';
+_emailServiceURL = 'i/mail/';
 var emailServiceCount = 4;
 var emailServiceClickCount = 8;
 
@@ -21,6 +23,12 @@ window.onload = function () {
 };
 
 /* CONTACT FUNCTIONS START HERE */
+
+var setSubmitAlert = function(a, b) {
+	a.classList.remove('active');
+	a.classList.remove('sent');
+	a.classList.add(b);
+};
 
 /**
  * Load and send the response
@@ -50,23 +58,24 @@ sendResponse = function() {
 			};
 			// Test number of requests (MAX = 4)
 			if (emailServiceCount > 0) {
-				console.log('enviando email');
-				emailServiceCount--;
-				console.log(c);
-				/*$.ajax({
+				//console.log(c);
+				//emailServiceCount--;
+				//setSubmitAlert(a, 'success');
+				$.ajax({
 					cache: false,
 					data: c,
+					beforeSend: function() {
+						a.classList.add('sent');
+					},
 					error: function(data) {
-						$(a).removeClass('active-form');
-						$(a).addClass('fail');
+				        setSubmitAlert(a, 'error');
 					},
 					success: function(data) {
-						$(a).removeClass('active-form');
-						$(a).addClass('success');
+				        setSubmitAlert(a, 'success');
 						emailServiceCount--;
 					},
 					url: _emailServiceURL
-				});*/
+				});
 			} else {
 				$(a).removeClass('active-form');
 				$(a).addClass('fail');
@@ -80,6 +89,18 @@ sendResponse = function() {
 	}
 };
 
+var minifyAllForms = function() {
+	var b = document.querySelectorAll('.pricelist .content > li');
+	for (var i = b.length; i--; )
+		minifyForm(b[i]);
+};
+
+var minifyForm = function(a) {
+	a.classList.remove('error');
+	a.classList.remove('success');
+	a.classList.remove('active');
+};
+
 /**
  * Handler of send button to calls the sendResponse function
  */
@@ -88,47 +109,18 @@ toggleForm = function() {
 
 	var a = this.parentNode;
 
-	if (!a.classList.contains('active')) a.classList.add('active');
-	else a.classList.remove('active');
-	/*
-	// Remove Success and Fail class and fix de title
-	$('.pricelist .content > .success').removeClass('success').
-			find('[data-toggle=contact-form]').
-			html('Assine Já');
-	$('.pricelist .content > .fail').removeClass('fail').
-			find('[data-toggle=contact-form]').
-			html('Assine Já');
+	if ((a.classList.contains('error')) || (a.classList.contains('success'))) {
+		minifyForm(a);
+	} else {
+		if (a.classList.contains('active')) {
+			a.classList.remove('active');
+		} else {
+			minifyAllForms();
+			a.classList.add('active');
+			a.querySelectorAll('[name=name]')[0].focus();
+		}
 
-	// Get the Parent and some possible element with form enabled
-	var a = $(this).parent(), b, c;
-
-	// If the current element has active, disable it
-	if ($(a).hasClass('active-form')) {
-		$(a).removeClass('active-form');
-		// Fix the title of button
-		$(a).find('[data-toggle=contact-form]').html('Assine Já');
-		b = true;
 	}
-
-	// Disable the form of any element with form enabled
-	c = $('.pricelist .content > .active-form');
-	if (c.length) {
-		$(c).removeClass('active-form');
-		// Fix the title of button of enabled itens
-		$(c).find('[data-toggle=contact-form]').html('Assine Já');
-	}
-
-	// IF var b is ok, enable the form of current element
-	if (!b) {
-		// Enable the form of current element
-		$(a).addClass('active-form');
-
-		// Add the fallback to title of button
-		$(this).html('Voltar');
-
-		$(a).find('[name=name]').focus();
-	}
-	*/
 
 };
 
@@ -151,15 +143,17 @@ buildForm = function(e) {
 	inputPhone.setAttribute('placeholder', 'Telefone (apenas números)');
 	inputPhone.setAttribute('autocomplete', 'off');
 
-	var inputSubmit = document.createElement('input');
-	inputSubmit.type = 'submit';
+	var inputSubmit = document.createElement('a');
 	inputSubmit.setAttribute('class', 'contact-form action response-send user-unselect cursor-pointer');
-	inputSubmit.value = "Solicitar Contato!";
+
+	var submitAlert = document.createElement('span');
+	submitAlert.classList.add('alert');
 
 	e.appendChild(link);
 	e.appendChild(inputName);
 	e.appendChild(inputPhone);
 	e.appendChild(inputSubmit);
+	e.appendChild(submitAlert);
 };
 
 /**
@@ -168,16 +162,6 @@ buildForm = function(e) {
 var appendForm;
 appendForm = function() {
 	var i;
-
-	var contactForm = '<a class="action user-unselect cursor-pointer toggle-contact-form"></a>' +
-		'<input type="text" class="contact-form" name="name" placeholder="Nome" autocomplete="off"/>' +
-		'<input type="tel" class="contact-form" name="phone" placeholder="Telefone (apenas números)" autocomplete="off" maxlength="11"/>' +
-		'<input type="submit" class="contact-form action response-send user-unselect cursor-pointer" value="Solicitar Contato!"/>' +
-		'<span class="action sent">Obrigado! :D<br/>Entraremos em contato em breve!</span>' +
-		'<span class="action not-sent">Ops! :(<br/>Houve algum problema! Tente novamente mais tarde!</span>';
-
-	// Do the append
-	//$('.pricelist .content > li').insertHTML(contactForm);
 
 	var pricelistItems = document.querySelectorAll('.pricelist .content > li');
 

@@ -433,15 +433,6 @@ body > footer .divisor {
 	padding: 8px 12px
 }
 
-.pricelist .content li:hover .title {
-	border-color: #fafafa
-}
-
-.pricelist .content li:hover .action {
-	opacity: 1;
-	transition: none
-}
-
 .pricelist.hidden-price .content li .title {
 	font-size: 3em
 }
@@ -455,19 +446,13 @@ body > footer .divisor {
 	flex-direction: column;
 }
 
-.pricelist .content li .toggle-contact-form:before {
-	content: 'Assine Já!';
-}
-
-.pricelist .content li.active .toggle-contact-form:before {
-	content: 'Voltar';
-}
-
-.pricelist .content li input {
+.pricelist .content li input,
+.pricelist .content li .response-send {
 	display: none;
 }
 
-.pricelist .content li.active input {
+.pricelist .content li.active input,
+.pricelist .content li.active .response-send {
 	display: block;
 	border-width: 2px;
 	margin-top: 1em;
@@ -480,46 +465,41 @@ body > footer .divisor {
 	transition: opacity .3s linear .15s;
 }
 
-.pricelist .content li.active .send {
+.pricelist .content li.active .alert {
 	height: auto;
 	margin: 1em 0 .5em;
 	padding: 10px;
 	-webkit-transition: opacity .4s linear .35s;
 	-moz-transition: opacity .4s linear .35s;
-	-o-transition: opacity .4s linear .35s;
 	-ms-transition: opacity .4s linear .35s;
+	-o-transition: opacity .4s linear .35s;
 	transition: opacity .4s linear .35s;
 }
 
-.pricelist .content li .sent,
-.pricelist .content li:hover .sent,
-.pricelist .content li .not-sent,
-.pricelist .content li:hover .not-sent {
+.pricelist .content li .alert,
+.pricelist .content li:hover .alert {
+	font-weight: 400;
 	height: 0;
 	padding: 0;
 	opacity: 0;
 	margin: 0;
 }
 
-.pricelist .content li.success .sent,
-.pricelist .content li.fail .not-sent {
+.pricelist .content li.success .alert,
+.pricelist .content li.error .alert {
 	opacity: 1;
 	height: auto;
 	margin: 1em 0 .5em;
 	padding: 10px;
 }
 
-.pricelist .content li.fail .not-sent {
-	background-color: #d50000;
-}
-
-.pricelist .content li.active-form .contact-form {
+.pricelist .content li.active .contact-form {
 	opacity: 1;
 }
 
-.pricelist .content li.active-form,
+.pricelist .content li.active,
 .pricelist .content li.success,
-.pricelist .content li.fail {
+.pricelist .content li.error {
 	background-color: #ffffff;
 	color: #424242;
 	transition: background .3s linear;
@@ -537,9 +517,78 @@ body > footer .divisor {
 
 .pricelist .content li.success [data-toggle=contact-form],
 .pricelist .content li.success .contact-form,
-.pricelist .content li.fail [data-toggle=contact-form],
-.pricelist .content li.fail .contact-form {
+.pricelist .content li.error [data-toggle=contact-form],
+.pricelist .content li.error .contact-form {
 	display: none;
+}
+
+/*
+	Dynamic Transitions
+*/
+
+/* Price Border Color */
+
+.pricelist .content li:hover .title,
+.pricelist .content li.error .title,
+.pricelist .content li.success .title {
+	border-color: #fafafa
+}
+
+/* Toggle Form Button */
+
+.pricelist .content li:hover .toggle-contact-form,
+.pricelist .content li.active .toggle-contact-form,
+.pricelist .content li.error .toggle-contact-form,
+.pricelist .content li.success .toggle-contact-form {
+	opacity: 1;
+	transition: none
+}
+
+/*
+	Dynamic Strings
+*/
+
+/* Toggle button */
+
+.pricelist .content li .toggle-contact-form:before {
+	content: 'Assine Já!';
+}
+
+.pricelist .content li.active .toggle-contact-form:before,
+.pricelist .content li.success .toggle-contact-form:before {
+	content: 'Voltar';
+}
+
+.pricelist .content li.error .toggle-contact-form:before {
+	content: 'Tentar novamente';
+}
+
+/* Submit Button */
+
+.pricelist .content li .response-send:before {
+	content: 'Solicitar Contato';
+}
+
+.pricelist .content li.active.sent .response-send:before {
+	content: 'Enviando...';
+}
+
+/* Submit Alert */
+
+.pricelist .content li.error .alert:before {
+	content: 'Houve algum erro, tente novamente mais tarde!';
+}
+
+.pricelist .content li.success .alert:before {
+	content: 'Obrigado! Logo entraremos em contato com você!';
+}
+
+.pricelist .content li.error .alert {
+	color: #d50000;
+}
+
+.pricelist .content li.success .alert {
+	color: #00bfa5;
 }
 
 #about .photo {
@@ -620,10 +669,6 @@ body > footer .divisor {
 	transition: all 1s;
 	width: 100%;
 	z-index: 100000;
-}
-
-.modal-container.open .modal {
-
 }
 
 .modal-container.open .modal {
