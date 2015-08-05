@@ -5,11 +5,14 @@ var gulp = require('gulp'),
 		minifycss = require('gulp-minify-css'),
 		pngquant = require('imagemin-pngquant'),
 		rename = require('gulp-rename'),
-		uglify = require('gulp-uglify');
+		uglify = require('gulp-uglify'),
+		tinypng = require('gulp-tinypng');
 
 var cssfiles = 'css/*.css',
 		imgfiles = 'img/*',
 		jsfiles = 'js/*.js';
+
+imgfiles = 'img/compress/*';
 
 gulp.task('wtal', function() {
 	gulp.src('css/wtal.css')
@@ -27,7 +30,7 @@ gulp.task('js', function() {
 			.pipe(jshint())
 			.pipe(jshint.reporter('default'))
 			.pipe(gulp.dest('dist/js'));
-	gulp.src(['dist/js/villa.js', 'dist/js/mowe.js', 'dist/js/app.js'])
+	gulp.src(['dist/js/dist.js'])
 			.pipe(rename({
 				extname: '.min.js'
 			}))
@@ -37,14 +40,22 @@ gulp.task('js', function() {
 			.pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('tinypng', function () {
+	gulp.src(imgfiles)
+		.pipe(tinypng('API_KEY'))
+		.pipe(gulp.dest('dist/img'));
+});
+
 gulp.task('img', function() {
 	gulp.src(imgfiles)
-			.pipe(imagemin({
-				progressive: true,
-				svgoPlugins: [{removeViewBox: false}],
-				use: [pngquant()]
-			}))
-			.pipe(gulp.dest('dist/img'));
+		.pipe(imagemin({
+			optimizationLevel: 7,
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [pngquant()]
+		}))
+		.pipe(tinypng('8eNoFlUv4wHzam_8GleKHdhH2YFk9xAd'))
+		.pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('default', function() {

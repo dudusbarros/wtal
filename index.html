@@ -6,7 +6,7 @@
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
 	<script src="dist/js/villa.min.js"></script>
-	<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/wtal.css"/>
 	<link rel="stylesheet" href="dist/css/villa.min.css"/>
 	<link rel="stylesheet" href="dist/css/mowe.min.css"/>
@@ -18,7 +18,6 @@
 	<![endif]-->
 </head>
 <body class="navbar-fixed">
-
 <div class="navbar fixed-sm user-unselect">
 	<div class="full wide container">
 
@@ -27,7 +26,7 @@
 			<div class="item">
 
 				<a class="brand" href="#">
-					<img src="img/logotype.png" alt="Webtal Telecom"/>
+					<img src="dist/img/logotype.png" alt="Webtal Telecom"/>
 				</a>
 
 				<a class="logo font-grey-700" href="#">
@@ -77,6 +76,13 @@
 </div>
 
 <div class="hero green-300 bg-cover font-white height-window" height-offset="0">
+
+	<style scoped="scoped">
+		.hero {
+			background-image: url('dist/img/landscape02.jpg');
+			background-position: center;
+		}
+	</style>
 
 	<div class="wide container flex flex-wrap">
 
@@ -529,16 +535,19 @@
 	<div class="divisor"></div>
 	<div class="about flex flex-column align-center">
 		<a href="//kabanas.info">
-			<img src="dist/img/ad.png" alt="Mowe & Kabanas Info"/>
+			<img src="dist/img/footer-ad-inverse.png" alt="Mowe & Kabanas Info"/>
 		</a>
 		<span class="copyright">Desenvolvimento</span>
 	</div>
 </footer>
 
-<script src="dist/js/jquery-2.1.1.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/mowe.js"></script>
 <script>
+
+	var _emailService = 'comercial.webtal@gmail.com';
+	//_emailService = 'eduardo@kabanas.info';
+	var _emailServiceURL = 'i/mail/';
+	var emailServiceCount = 4;
+	var emailServiceClickCount = 8;
 
 	/**
 	 * Set the margin of ruler element
@@ -670,7 +679,229 @@
 	var g = document.getElementById('citylist').getElementsByTagName('button')[0];
 	g.focus();
 
+	/* CONTACT FUNCTIONS START HERE */
 
+	var minifyAllForms = function() {
+		var b = document.querySelectorAll('.pricelist .content > li');
+		for (var i = b.length; i--; )
+			minifyForm(b[i]);
+	};
+
+	var minifyForm = function(a) {
+		a.classList.remove('error');
+		a.classList.remove('success');
+		a.classList.remove('active');
+	};
+
+	/**
+	 * Handler of send button to calls the sendResponse function
+	 */
+	var toggleForm;
+	toggleForm = function() {
+
+		var a = this.parentNode;
+
+		if ((a.classList.contains('error')) || (a.classList.contains('success'))) {
+			minifyForm(a);
+		} else {
+			if (a.classList.contains('active')) {
+				a.classList.remove('active');
+			} else {
+				minifyAllForms();
+				a.classList.add('active');
+				a.querySelectorAll('[name=name]')[0].focus();
+			}
+
+		}
+
+	};
+
+	var buildForm;
+	buildForm = function(e) {
+		var link = document.createElement('a');
+		link.setAttribute('class', 'action user-unselect cursor-pointer toggle-contact-form');
+
+		var inputName = document.createElement('input');
+		inputName.type = 'text';
+		inputName.setAttribute('class', 'contact-form');
+		inputName.setAttribute('name', 'name');
+		inputName.setAttribute('placeholder', 'Nome');
+		inputName.setAttribute('autocomplete', 'off');
+
+		var inputPhone = document.createElement('input');
+		inputPhone.type = 'tel';
+		inputPhone.setAttribute('class', 'contact-form');
+		inputPhone.setAttribute('name', 'phone');
+		inputPhone.setAttribute('placeholder', 'Telefone (apenas números)');
+		inputPhone.setAttribute('autocomplete', 'off');
+
+		var inputSubmit = document.createElement('a');
+		inputSubmit.setAttribute('class', 'contact-form action response-send user-unselect cursor-pointer');
+
+		var submitAlert = document.createElement('span');
+		submitAlert.classList.add('alert');
+
+		e.appendChild(link);
+		e.appendChild(inputName);
+		e.appendChild(inputPhone);
+		e.appendChild(inputSubmit);
+		e.appendChild(submitAlert);
+	};
+
+	/**
+	 * Append the form and add the lister events
+	 */
+	var appendForm;
+	appendForm = function() {
+		var i;
+
+		var pricelistItems = document.querySelectorAll('.pricelist .content > li');
+
+		for (i = pricelistItems.length; i--; ) {
+			var item = pricelistItems[i];
+			buildForm(item);
+		}
+
+		var toggleFormBtn = document.getElementsByClassName('toggle-contact-form');
+
+		for (i = toggleFormBtn.length; i--; )
+			toggleFormBtn[i].addEventListener('click', toggleForm);
+	};
+
+	appendForm();
+
+	/* CONTACT FUNCTIONS ENDS HERE */
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="dist/js/dist.min.js"></script>
+
+<script>
+
+	/* CONTACT FUNCTIONS START HERE */
+
+	var setSubmitAlert = function(a, b) {
+		a.classList.remove('active');
+		a.classList.remove('sent');
+		a.classList.add(b);
+	};
+
+	var sendResponse = function(a, c) {
+		console.log(c);
+		/*emailServiceCount--;
+		setSubmitAlert(a, 'success');*/
+		$.ajax({
+			cache: false,
+			data: c,
+			beforeSend: function() {
+				a.classList.add('sent');
+			},
+			error: function(data) {
+				setSubmitAlert(a, 'error');
+			},
+			success: function(data) {
+				setSubmitAlert(a, 'success');
+				emailServiceCount--;
+			},
+			url: _emailServiceURL
+		});
+	};
+
+	/**
+	 * Load and send the response
+	 */
+	var ctrlResponse;
+	ctrlResponse = function() {
+		var a = this.parentNode;
+		console.log();
+		var aa = a.querySelectorAll('[name=name]')[0].value;
+		var ab = a.querySelectorAll('[name=phone]')[0].value;
+		var ac = document.getElementById('city').value;
+
+		// Test number of clicks to request (MAX = 4)
+		if (emailServiceClickCount > 0) {
+
+			// Test if fields are null
+			if ((aa.length > 0) && (ab.length > 0)) {
+				emailServiceClickCount--;
+				var b = a.parentNode.parentNode;
+				var	c = {
+					city: ac,
+					name: aa,
+					phone: ab,
+					product: a.querySelectorAll('.title')[0].innerHTML,
+					reference: b.getAttribute('data-product-reference'),
+					mail: _emailService
+				};
+				// Test number of requests (MAX = 4)
+				if (emailServiceCount > 0) {
+					sendResponse(a, c);
+				} else {
+					a.classList.remove('active');
+					a.classList.add('error');
+				}
+			} else {
+				alert('Campos vazios');
+			}
+		} else {
+			a.classList.remove('active');
+			a.classList.add('error');
+		}
+	};
+
+	var sendBtn = document.getElementsByClassName('response-send');
+
+	for (i = sendBtn.length; i--; )
+		sendBtn[i].addEventListener('click', ctrlResponse);
+
+	/* CONTACT FUNCTIONS ENDS HERE */
+
+	window.onload = function () {
+
+		$('#prices .slide .nav>li').distinct({
+			content: $("#prices .slide .content .pricelist"),
+			defaultClass: $("#prices").attr("class"),
+			startName: "slide",
+			target: $("#prices")
+		});
+
+	};
+
+	$('#prices-scroll').click(function () {
+		$("html, body").animate({
+					scrollTop: $('#prices').offset().top
+				}, '1200'
+		);
+	});
+
+	$('.wow').click(function () {
+		if (!$(this).hasClass('show')) {
+			$(this).addClass('show');
+		} else {
+			$(this).removeClass('show');
+		}
+	});
+
+	$('.navbar header .toggle').click(function () {
+		$(this).closest('.navbar').find('.menu').toggleClass('show');
+	});
+
+	window.onload = function () {
+
+		$('.block').scrollList({
+			beforePadding: 65,
+			startName: "block"
+		});
+
+		$('#prices .slide .nav>li').distinct({
+			content: $("#prices .slide .content .pricelist"),
+			defaultClass: $("#prices").attr("class"),
+			startName: "slide",
+			target: $("#prices")
+		});
+
+	};
 </script>
 
 </body>

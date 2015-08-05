@@ -66,11 +66,6 @@
 	/*background-image: url("../img/wt01.jpg");*/
 }
 
-.hero {
-	background-image: url('../img/landscape02.jpg');
-	background-position: center;
-}
-
 .hero .container {
 	margin-bottom: 0;
 	/*align-items: center;*/
@@ -227,7 +222,7 @@ body > footer {
 }
 
 body > footer img {
-	max-height: 3em;
+	max-height: 6em;
 }
 
 body > footer .divisor {
@@ -362,7 +357,7 @@ body > footer .divisor {
 
 @media (min-width: 72em) {
 	.pricelist .content li {
-		padding: 3em 3em 2.25em
+		padding: 3em 3em 1.5em
 	}
 }
 
@@ -476,8 +471,7 @@ body > footer .divisor {
 	transition: opacity .4s linear .35s;
 }
 
-.pricelist .content li .alert,
-.pricelist .content li:hover .alert {
+.pricelist .content li .alert {
 	font-weight: 400;
 	height: 0;
 	padding: 0;
@@ -500,7 +494,6 @@ body > footer .divisor {
 .pricelist .content li.active,
 .pricelist .content li.success,
 .pricelist .content li.error {
-	background-color: #ffffff;
 	color: #424242;
 	transition: background .3s linear;
 }
@@ -592,7 +585,7 @@ body > footer .divisor {
 }
 
 #about .photo {
-	background-image: url("../img/mac02.jpg");
+	background-image: url("../dist/img/mac02.jpg");
 	background-position: center;
 	min-height: 18em;
 }

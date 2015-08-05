@@ -1,27 +1,8 @@
 /*!
- * Villa Mowe v0.6.0 (http://getvilla.org/)
+ * Mowe Webtal Project v1.0.0 (http://gomowe.org/)
  * Copyright 2013-2015 Noibe Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
  */
-
-$('#prices-scroll').click(function () {
-	$("html, body").animate({
-		scrollTop: $('#prices').offset().top
-	}, '1200'
-	);
-});
-
-$('.wow').click(function () {
-	if (!$(this).hasClass('show')) {
-		$(this).addClass('show');
-	} else {
-		$(this).removeClass('show');
-	}
-});
-
-$('.navbar header .toggle').click(function () {
-	$(this).closest('.navbar').find('.menu').toggleClass('show');
-});
 
 /* Mowe Distinct v0.1.0 */
 
