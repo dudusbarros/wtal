@@ -22,7 +22,7 @@
  * Mowe Structure v0.5.0 (http://getvilla.org/)
  * Copyright 2013-2015 Noibe Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
-*/.block{float:left;padding:1.5em 0 1.125em}.block .container>.about,.block>.about{margin:2.25em 0}.block .about h1,.block .container>h1,.block>h1{font-weight:400}.block .about .lead,.block .container>.lead,.block>.lead{font-size:1.5em;font-weight:300}.block .about h1+.lead,.block .container>h1+.lead,.block>h1+.lead{margin-top:20px}@media (min-width:30em){.block{padding:2.25em 0 1.125em;width:100%}}@media (min-width:43.75em){.block{padding:3.75em 0 1.5em;width:100%}}/*!
+*/.block{float:left;padding:1.5em 0 1.125em}.block .container>.about,.block>.about{margin:2.25em 0}.block .about h1,.block .container>h1,.block>h1{font-weight:400}.block .about h1+.lead,.block .container>h1+.lead,.block>h1+.lead{margin-top:20px}@media (min-width:30em){.block{padding:2.25em 0 1.125em;width:100%}}@media (min-width:43.75em){.block{padding:3.75em 0 1.5em;width:100%}}/*!
  * Mowe Timeline v1.0.0 (http://getvilla.org/)
  * Copyright 2013-2015 Noibe Developers
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)

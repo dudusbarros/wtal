@@ -229,6 +229,12 @@ body > footer .divisor {
 	border-right: 1px solid;
 }
 
+@media (max-width: 48em) {
+	body > footer .divisor {
+		display: none;
+	}
+}
+
 /* TEMPORARY USE */
 #prices .pricelist {
 	opacity: 0;
@@ -286,22 +292,53 @@ body > footer .divisor {
 
 .services p {
 	font-size: 1.5em;
-	line-height: 145%; /* 135% of font-size [1] */
-	margin-bottom: 1.5em; /* 150% of font-size [2] */
+	line-height: 1.45;
+	margin-bottom: 1.5em;
 	text-align: justify;
 }
 
+.block .about .lead,
+.block .container>.lead,.block>.lead  {
+	font-weight: 300;
+}
+
+@media (max-width: 36em) {
+	.about h1,
+	.services h1 {
+		font-size: 3em;
+	}
+
+	.about p,
+	.services p,
+	#prices .config {
+		font-size: 1.125em;
+	}
+}
+
+@media (max-width: 60em) {
+	.about h1,
+	.services h1 {
+		margin: 0 16px .5em;
+	}
+
+	.about p,
+	.services p,
+	#prices .config {
+		margin: 0 16px 1em;
+	}
+}
+
 .services .blog {
-	-webkit-align-items: center;
+	/*-webkit-align-items: center;
 	align-items: center;
-	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-	display: -ms-flexbox;      /* TWEENER - IE 10 */
-	display: -webkit-flex;     /* NEW - Chrome */
+	display: -webkit-box;      /!* OLD - iOS 6-, Safari 3.1-6 *!/
+	display: -moz-box;         /!* OLD - Firefox 19- (buggy but mostly works) *!/
+	display: -ms-flexbox;      /!* TWEENER - IE 10 *!/
+	display: -webkit-flex;     /!* NEW - Chrome *!/
 	display: flex;
 	flex-direction: column;
 	flex-flow: column;
-	flex-wrap: nowrap;
+	flex-wrap: nowrap;*/
 }
 
 .services .blog * {
@@ -591,7 +628,13 @@ body > footer .divisor {
 }
 
 @media (max-width: 48em) {
+
+	.navbar footer .show.menu {
+		border-color: #004d40;
+	}
+
 	.navbar footer .menu {
+		background-color: #004d40;
 		color: #66bb6a;
 	}
 }
