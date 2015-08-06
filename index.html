@@ -59,13 +59,13 @@
 
 			<div class="menu bg-sm font-white">
 				<div class="item">
-					<a class="link hfont-green-a400" href="#prices">Planos</a>
-				</div>
-				<div class="item">
 					<a class="link hfont-green-a400" href="#about">Sobre</a>
 				</div>
+				<div class="item">
+					<a class="link hfont-green-a400" href="#prices">Planos</a>
+				</div>
 				<div class="item teal-700">
-					<a class="link font-white" href="#contato">Contato</a>
+					<a class="link font-white" href="#contact">Contato</a>
 				</div>
 			</div>
 
@@ -622,16 +622,18 @@
 		}
 
 		.contacts .contact {
+			border-radius: 8px;
 			min-width: 16em;
 			padding: 1em 0;
 		}
 
-		.contacts .contact span {
-			margin: .3125em 0;
+		.contacts .contact:hover {
+			background-color: #e0e0e0;
+			cursor: pointer;
 		}
 
-		.contacts .contact:hover {
-			cursor: pointer;
+		.contacts .contact span {
+			margin: .3125em 0;
 		}
 
 		.contacts .contact [class^="icon-"]:before {
@@ -662,21 +664,21 @@
 	</style>
 
 	<div class="contacts flex flex-row flex-wrap justify-around width-100">
-		<a class="contact flex flex-column align-center">
+		<div class="contact flex flex-column align-center">
 			<span class="icon-phone"></span>
 			<span class="number">18 3351 2122</span>
 			<span class="title">Fixo</span>
-		</a>
+		</div>
 		<a href="mailto:contato@webtal.com.br" class="contact flex flex-column align-center">
 			<span class="icon-mail"></span>
 			<span class="email">contato@webtal.com.br</span>
 			<span class="title">Email</span>
 		</a>
-		<a class="contact flex flex-column align-center">
+		<div class="contact flex flex-column align-center">
 			<span class="icon-whatsapp"></span>
 			<span class="number">18 9 8163 1287</span>
 			<span class="title">WhatsApp</span>
-		</a>
+		</div>
 	</div>
 
 	<h2>Horários de atendimento</h2>
@@ -689,11 +691,12 @@
 		}
 
 		.office-hours .office-hour {
-			border: solid 1px #00bfa5;
+			border: solid 2px #00bfa5;
 			border-radius: 8px;
 			padding: 1em;
 			margin: 1em 0;
 			text-align: center;
+			cursor: pointer;
 		}
 
 		.office-hours .office-hour span {
@@ -708,11 +711,11 @@
 	</style>
 
 	<div class="office-hours flex width-100 justify-around flex-wrap">
-		<div class="office-hour flex flex-column align-center font-teal-800 hfont-white h-teal-a700">
+		<div class="office-hour flex flex-column align-center hfont-white h-teal-a700">
 			<span class="days">Seg/Sex</span>
 			<span class="hour">08:00 até 17:30</span>
 		</div>
-		<div class="office-hour flex flex-column align-center font-teal-800 hfont-white h-teal-a700">
+		<div class="office-hour flex flex-column align-center hfont-white h-teal-a700">
 			<span class="days">Sábado</span>
 			<span class="hour">08:00 até 12:00</span>
 		</div>
@@ -720,7 +723,7 @@
 
 </div>
 
-<footer id="contato" class="block flex justify-around flex-wrap grey-900 font-grey-600 border-grey-600">
+<footer class="block flex justify-around flex-wrap grey-900 font-grey-600 border-grey-600">
 	<div class="about flex flex-column align-center">
 		<span class="address">(18) 3351-2122 / Webtal Telecom, Palmital, SP, CEP 19970-000</span>
 		<span class="copyright">©Webtal Telecom 2015</span>
