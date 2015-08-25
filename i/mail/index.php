@@ -38,11 +38,8 @@ if ($emailService) {
 
 	// To
 	$mail->addAddress('joseeduardobarros@gmail.com', 'Eduardo');    // Send to Developer (test)
-//	$mail->addAddress($email, 'Receiver');                          // Send to Developer (test)
-//	$mail->addAddress('joseeduardo_barros@hotmail.com');            // Send to Developer (test)
-
-	// Additional To
-	$mail->addAddress($email);          // Send to Someone
+	$mail->addAddress('bgm_advogado@hotmail.com', 'Bruno');
+	$mail->addAddress($email, 'Webtal');
 
 	$mail->isHTML(true);                                  // Set email format to HTML
 
