@@ -4,6 +4,78 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
 */
 
+@-webkit-keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
+@-moz-keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
+@-o-keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
 @keyframes lightspeed {
 
 	0% {
