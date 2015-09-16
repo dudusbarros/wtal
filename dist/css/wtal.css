@@ -4,36 +4,22 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
 */
 
-
 .navbar {
-
-	background: -webkit-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* Chrome 10+, Saf5.1+ */
-	background:    -moz-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* FF3.6+ */
-	background:     -ms-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* IE10 */
-	background:      -o-linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* Opera 11.10+ */
-	background:         linear-gradient(90deg, #1b5e20 10%, #004d40 70%); /* W3C */
+	background: -webkit-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #00695c 10%, #004d40 90%); /* W3C */
+	-webkit-transition: all 9s;
+	-moz-transition: all 9s;
+	-ms-transition: all 9s;
+	-o-transition: all 9s;
+	transition: all 9s;
 }
 
-.block-1 .navbar footer .menu {
-	color: #66bb6a;
-}
-
-.block-1 .navbar .brand,
-.block-2 .navbar .brand {
-	color: #66bb6a;
-}
-
-.block-1 .navbar #bg path,
-.block-2 .navbar #bg path {
-	stroke: #cddc39 !important;
-}
-
-.block-3 .navbar .brand {
-	color: #fff;
-}
-
-.block-3 .navbar #bg path {
-	stroke: #fff !important;
+.brand img {
+	height: 28px;
+	margin-top: 2px;
 }
 
 @media (max-width: 768px) {
@@ -66,7 +52,7 @@
 
 #bg path {
 	fill: none;
-	stroke: #ffffff;
+	stroke: #c0ca33;
 	stroke-width: 60;
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
@@ -78,11 +64,6 @@
 
 .hero {
 	/*background-image: url("../img/wt01.jpg");*/
-}
-
-.hero {
-	background-image: url('../img/landscape02.jpg');
-	background-position: center;
 }
 
 .hero .container {
@@ -241,33 +222,17 @@ body > footer {
 }
 
 body > footer img {
-	max-height: 3em;
+	max-height: 6em;
 }
 
 body > footer .divisor {
 	border-right: 1px solid;
 }
 
-body > footer {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: row;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-
-body > footer .about {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
+@media (max-width: 48em) {
+	body > footer .divisor {
+		display: none;
+	}
 }
 
 /* TEMPORARY USE */
@@ -327,22 +292,53 @@ body > footer .about {
 
 .services p {
 	font-size: 1.5em;
-	line-height: 145%; /* 135% of font-size [1] */
-	margin-bottom: 1.5em; /* 150% of font-size [2] */
+	line-height: 1.45;
+	margin-bottom: 1.5em;
 	text-align: justify;
 }
 
+.block .about .lead,
+.block .container>.lead,.block>.lead  {
+	font-weight: 300;
+}
+
+@media (max-width: 36em) {
+	.about h1,
+	.services h1 {
+		font-size: 3em;
+	}
+
+	.about p,
+	.services p,
+	#prices .config {
+		font-size: 1.125em;
+	}
+}
+
+@media (max-width: 60em) {
+	.about h1,
+	.services h1 {
+		margin: 0 16px .5em;
+	}
+
+	.about p,
+	.services p,
+	#prices .config {
+		margin: 0 16px 1em;
+	}
+}
+
 .services .blog {
-	-webkit-align-items: center;
+	/*-webkit-align-items: center;
 	align-items: center;
-	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-	display: -ms-flexbox;      /* TWEENER - IE 10 */
-	display: -webkit-flex;     /* NEW - Chrome */
+	display: -webkit-box;      /!* OLD - iOS 6-, Safari 3.1-6 *!/
+	display: -moz-box;         /!* OLD - Firefox 19- (buggy but mostly works) *!/
+	display: -ms-flexbox;      /!* TWEENER - IE 10 *!/
+	display: -webkit-flex;     /!* NEW - Chrome *!/
 	display: flex;
 	flex-direction: column;
 	flex-flow: column;
-	flex-wrap: nowrap;
+	flex-wrap: nowrap;*/
 }
 
 .services .blog * {
@@ -355,19 +351,142 @@ body > footer .about {
 	margin-bottom: 1.5em;
 }
 
+.services .photo {
+	margin-bottom: 2em;
+}
+
+.pricelist .content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start
+}
+
+.pricelist .content li {
+	align-items: center;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 16em;
+	padding: 1.5em 1.125em 1em;
+	text-align: center
+}
+
+@media (min-width: 48em) {
+	.pricelist .content li {
+		padding: 2.25em 1.5em 1.5em;
+		max-width: 16em
+	}
+}
+
+@media (min-width: 60em) {
+	.pricelist .content {
+		flex-wrap: nowrap
+	}
+
+	.pricelist .content li {
+		padding: 2.25em 1.5em 1.5em;
+		max-width: 16em
+	}
+}
+
+@media (min-width: 72em) {
+	.pricelist .content li {
+		padding: 3em 2.25em 1.5em
+	}
+}
+
+.pricelist .content li .title {
+	border-bottom: solid 2px #666;
+	font-size: 1.125em;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	text-transform: uppercase
+}
+
+.pricelist .content li .price {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	min-width: 180px
+}
+
+.pricelist .content li .price .dollar {
+	font-size: 40px;
+	align-self: flex-start
+}
+
+.pricelist .content li .price .number {
+	font-size: 3.75em;
+	line-height: 1em;
+	align-self: center
+}
+
+.pricelist .content li .price .decimal {
+	align-self: flex-end
+}
+
+.pricelist .content li .description {
+	font-size: 15px;
+	margin: 15px 0;
+	color: #888
+}
+
+.pricelist .content li .action {
+	background-color: #00bfa5;
+	border: none;
+	border-radius: 25px;
+	font-size: 1em;
+	font-weight: 600;
+	color: #fff;
+	margin: 1em 0 .5em;
+	padding: 10px;
+	opacity: 0;
+	transition: none
+}
+
+.pricelist .content li:hover,
+.pricelist .content li.active {
+	background-color: #fafafa;
+	color: #424242;
+	transition: background .3s linear
+}
+
+.pricelist .content li input {
+	background-color: #eee;
+	border: 2px solid #00bfa5;
+	border-radius: 2px;
+	color: #424242;
+	font-size: 1.125em;
+	font-weight: 300;
+	display: block;
+	margin-top: 1em;
+	padding: 8px 12px
+}
+
+.pricelist.hidden-price .content li .title {
+	font-size: 3em
+}
+
 .pricelist .content li:hover .send {
 	opacity: 0;
 }
 
-.pricelist .content li .contact-form {
-	border-width: 0;
-	height: 0;
-	padding: 0;
-	margin: 0;
-	opacity: 0;
+.pricelist .content li .contact {
+	display: flex;
+	flex-direction: column;
 }
 
-.pricelist .content li.active-form input {
+.pricelist .content li input,
+.pricelist .content li .response-send {
+	display: none;
+}
+
+.pricelist .content li.active input,
+.pricelist .content li.active .response-send {
+	display: block;
 	border-width: 2px;
 	margin-top: 1em;
 	padding: 8px 12px;
@@ -379,47 +498,40 @@ body > footer .about {
 	transition: opacity .3s linear .15s;
 }
 
-.pricelist .content li.active-form .send {
+.pricelist .content li.active .alert {
 	height: auto;
 	margin: 1em 0 .5em;
 	padding: 10px;
 	-webkit-transition: opacity .4s linear .35s;
 	-moz-transition: opacity .4s linear .35s;
-	-o-transition: opacity .4s linear .35s;
 	-ms-transition: opacity .4s linear .35s;
+	-o-transition: opacity .4s linear .35s;
 	transition: opacity .4s linear .35s;
 }
 
-.pricelist .content li .sent,
-.pricelist .content li:hover .sent,
-.pricelist .content li .not-sent,
-.pricelist .content li:hover .not-sent {
+.pricelist .content li .alert {
+	font-weight: 400;
 	height: 0;
 	padding: 0;
 	opacity: 0;
 	margin: 0;
 }
 
-.pricelist .content li.success .sent,
-.pricelist .content li.fail .not-sent {
+.pricelist .content li.success .alert,
+.pricelist .content li.error .alert {
 	opacity: 1;
 	height: auto;
 	margin: 1em 0 .5em;
 	padding: 10px;
 }
 
-.pricelist .content li.fail .not-sent {
-	background-color: #d50000;
-}
-
-.pricelist .content li.active-form .contact-form {
+.pricelist .content li.active .contact-form {
 	opacity: 1;
 }
 
-.pricelist .content li.active-form,
+.pricelist .content li.active,
 .pricelist .content li.success,
-.pricelist .content li.fail {
-	background-color: #ffffff;
+.pricelist .content li.error {
 	color: #424242;
 	transition: background .3s linear;
 }
@@ -436,19 +548,99 @@ body > footer .about {
 
 .pricelist .content li.success [data-toggle=contact-form],
 .pricelist .content li.success .contact-form,
-.pricelist .content li.fail [data-toggle=contact-form],
-.pricelist .content li.fail .contact-form {
+.pricelist .content li.error [data-toggle=contact-form],
+.pricelist .content li.error .contact-form {
 	display: none;
 }
 
+/*
+	Dynamic Transitions
+*/
+
+/* Price Border Color */
+
+.pricelist .content li:hover .title,
+.pricelist .content li.error .title,
+.pricelist .content li.success .title {
+	border-color: #fafafa
+}
+
+/* Toggle Form Button */
+
+.pricelist .content li:hover .toggle-contact-form,
+.pricelist .content li.active .toggle-contact-form,
+.pricelist .content li.error .toggle-contact-form,
+.pricelist .content li.success .toggle-contact-form {
+	opacity: 1;
+	transition: none
+}
+
+/*
+	Dynamic Strings
+*/
+
+/* Toggle button */
+
+.pricelist .content li .toggle-contact-form:before {
+	content: 'Assine Já!';
+}
+
+.pricelist .content li.request .toggle-contact-form:before {
+	content: 'Consulta!';
+}
+
+.pricelist .content li.active .toggle-contact-form:before,
+.pricelist .content li.success .toggle-contact-form:before {
+	content: 'Voltar';
+}
+
+.pricelist .content li.error .toggle-contact-form:before {
+	content: 'Tentar novamente';
+}
+
+/* Submit Button */
+
+.pricelist .content li .response-send:before {
+	content: 'Solicitar Contato';
+}
+
+.pricelist .content li.active.sent .response-send:before {
+	content: 'Enviando...';
+}
+
+/* Submit Alert */
+
+.pricelist .content li.error .alert:before {
+	content: 'Houve algum erro, tente novamente mais tarde!';
+}
+
+.pricelist .content li.success .alert:before {
+	content: 'Obrigado! Logo entraremos em contato com você!';
+}
+
+.pricelist .content li.error .alert {
+	color: #d50000;
+}
+
+.pricelist .content li.success .alert {
+	color: #00bfa5;
+}
+
 #about .photo {
+	display: block;
 	background-image: url("../img/mac02.jpg");
 	background-position: center;
 	min-height: 18em;
 }
 
 @media (max-width: 48em) {
+
+	.navbar footer .show.menu {
+		border-color: #004d40;
+	}
+
 	.navbar footer .menu {
+		background-color: #004d40;
 		color: #66bb6a;
 	}
 }
@@ -519,10 +711,6 @@ body > footer .about {
 	transition: all 1s;
 	width: 100%;
 	z-index: 100000;
-}
-
-.modal-container.open .modal {
-
 }
 
 .modal-container.open .modal {

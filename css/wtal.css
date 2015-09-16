@@ -4,7 +4,34 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
 */
 
+@keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
 .navbar {
+	-webkit-animation: lightspeed 3s 16 linear;
+	-o-animation: lightspeed 3s 16 linear;
+	animation: lightspeed 3s 16 linear;
 	background: -webkit-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* Chrome 10+, Saf5.1+ */
 	background:    -moz-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* FF3.6+ */
 	background:     -ms-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* IE10 */
@@ -370,13 +397,13 @@ body > footer .divisor {
 	flex-direction: column;
 	justify-content: center;
 	max-width: 16em;
-	padding: 1.5em 1.5em 1em;
+	padding: 1.5em 1.125em 1em;
 	text-align: center
 }
 
 @media (min-width: 48em) {
 	.pricelist .content li {
-		padding: 2.25em 2.25em 1.5em;
+		padding: 2.25em 1.5em 1.5em;
 		max-width: 16em
 	}
 }
@@ -387,14 +414,14 @@ body > footer .divisor {
 	}
 
 	.pricelist .content li {
-		padding: 2.25em 2.25em 1.5em;
+		padding: 2.25em 1.5em 1.5em;
 		max-width: 16em
 	}
 }
 
 @media (min-width: 72em) {
 	.pricelist .content li {
-		padding: 3em 3em 1.5em
+		padding: 3em 2.25em 1.5em
 	}
 }
 
@@ -447,7 +474,8 @@ body > footer .divisor {
 	transition: none
 }
 
-.pricelist .content li:hover {
+.pricelist .content li:hover,
+.pricelist .content li.active {
 	background-color: #fafafa;
 	color: #424242;
 	transition: background .3s linear
@@ -584,6 +612,10 @@ body > footer .divisor {
 	content: 'Assine Já!';
 }
 
+.pricelist .content li.request .toggle-contact-form:before {
+	content: 'Consulta!';
+}
+
 .pricelist .content li.active .toggle-contact-form:before,
 .pricelist .content li.success .toggle-contact-form:before {
 	content: 'Voltar';
@@ -622,7 +654,8 @@ body > footer .divisor {
 }
 
 #about .photo {
-	background-image: url("../dist/img/mac02.jpg");
+	display: block;
+	background-image: url("../img/mac02.jpg");
 	background-position: center;
 	min-height: 18em;
 }

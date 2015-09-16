@@ -1,18 +1,16 @@
 var gulp = require('gulp'),
 		concat = require('gulp-concat'),
-		imagemin = require('gulp-imagemin'),
 		jshint = require('gulp-jshint'),
 		minifycss = require('gulp-minify-css'),
-		pngquant = require('imagemin-pngquant'),
 		rename = require('gulp-rename'),
 		uglify = require('gulp-uglify'),
 		tinypng = require('gulp-tinypng');
 
 var cssfiles = 'css/*.css',
-		imgfiles = 'img/*',
-		jsfiles = 'js/*.js';
+	imgfiles = 'img/*',
+	jsfiles = 'js/*.js';
 
-imgfiles = 'img/compress/*';
+imgfiles = 'img/*';
 
 gulp.task('wtal', function() {
 	gulp.src('css/wtal.css')
@@ -42,18 +40,6 @@ gulp.task('js', function() {
 
 gulp.task('tinypng', function () {
 	gulp.src(imgfiles)
-		.pipe(tinypng('API_KEY'))
-		.pipe(gulp.dest('dist/img'));
-});
-
-gulp.task('img', function() {
-	gulp.src(imgfiles)
-		.pipe(imagemin({
-			optimizationLevel: 7,
-			progressive: true,
-			svgoPlugins: [{removeViewBox: false}],
-			use: [pngquant()]
-		}))
 		.pipe(tinypng('8eNoFlUv4wHzam_8GleKHdhH2YFk9xAd'))
 		.pipe(gulp.dest('dist/img'));
 });
