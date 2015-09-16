@@ -4,7 +4,106 @@
  * Licensed under MIT (https://github.com/noibe/villa/blob/master/LICENSE)
 */
 
+@-webkit-keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
+@-moz-keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
+@-o-keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
+@keyframes lightspeed {
+
+	0% {
+		opacity: .75;
+	}
+
+	25% {
+		opacity: .875;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	75% {
+		opacity: .875;
+	}
+
+	100% {
+		opacity: .75;
+	}
+
+}
+
 .navbar {
+	-webkit-animation: lightspeed 3s 16 linear;
+	-o-animation: lightspeed 3s 16 linear;
+	animation: lightspeed 3s 16 linear;
 	background: -webkit-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* Chrome 10+, Saf5.1+ */
 	background:    -moz-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* FF3.6+ */
 	background:     -ms-linear-gradient(90deg, #00695c 10%, #004d40 90%); /* IE10 */
