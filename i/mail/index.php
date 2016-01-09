@@ -38,7 +38,7 @@ if ($emailService) {
 
 	// To
 	$mail->addAddress('joseeduardobarros@gmail.com', 'Eduardo');    // Send to Developer (test)
-	$mail->addAddress('bgm_advogado@hotmail.com', 'Bruno');
+	$mail->addAddress('site@webtal.com.br', 'Bruno');
 	$mail->addAddress($email, 'Webtal');
 
 	$mail->isHTML(true);                                  // Set email format to HTML
