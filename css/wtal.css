@@ -727,7 +727,7 @@ body > footer .divisor {
 
 #about .photo {
 	display: block;
-	background-image: url("../img/mac02.jpg");
+	background-image: url("../dist/img/mac02.jpg");
 	background-position: center;
 	min-height: 18em;
 }
